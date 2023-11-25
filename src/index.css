@@ -1,0 +1,235 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  background-color: #333333;
+}
+
+.sidebar {
+  background-color: #242424;
+  width: 200px;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  text-align: center;
+}
+/*
+.sidebar b {
+  color: white;
+  text-align: center;
+  font-size: 30px;
+  padding: 5px;
+}
+*/
+
+.play {
+  position: fixed;
+}
+
+.play ul {
+  padding: 10px;
+  margin: 0;
+}
+
+.play ul li {
+  list-style-type: none;
+}
+
+.play ul li .button {
+  width: 190px;
+  height: 30px;
+  border: none;
+  color: rgb(212, 212, 212);
+  background-color: #242424;
+  font-size: 20px;
+  text-align: left;
+}
+
+.play ul li .button:hover {
+  color: white;
+}
+
+.settings {
+  position: fixed;
+  top: 150px;
+}
+
+.settings ul {
+  padding: 10px;
+  margin: 0;
+}
+
+.settings ul li {
+  list-style-type: none;
+}
+
+.settings ul li .button {
+  width: 190px;
+  height: 30px;
+  border: none;
+  color: rgb(212, 212, 212);
+  background-color: #242424;
+  font-size: 20px;
+  text-align: left;
+}
+
+.settings ul li .button:hover {
+  color: white;
+}
+
+.profile {
+  position: fixed;
+  bottom: 0;
+}
+
+.profile ul {
+  padding: 10px;
+  margin: 0;
+}
+
+.profile ul li {
+  list-style-type: none;
+}
+
+.profile ul li .button {
+  width: 190px;
+  height: 30px;
+  border: none;
+  color: rgb(212, 212, 212);
+  background-color: #242424;
+  font-size: 20px;
+  text-align: left;
+}
+
+.profile ul li .button:hover {
+  color: white;
+}
+
+.mainframe {
+  position: relative;
+}
+
+.pstats, .psearch, .pgamemode, .psettings, .psession, .pclient {
+  position: absolute;
+  width: 600px;
+  height: 100%;
+  left: 190px;
+}
+
+.pstats {
+  visibility: visible;
+}
+
+.pstats h1 {
+  color: aqua;
+  font: 50px;
+}
+
+.psearch {
+  visibility: hidden;
+}
+
+.psearch h1 {
+  color: aqua;
+  font: 50px;
+}
+
+.pgamemode {
+  visibility: hidden;
+  color: rgb(212, 212, 212);
+}
+
+.pgamemode h1 {
+  font-size: 25px;
+  padding: 10px;
+}
+
+.gamemode_options {
+  position: relative;
+}
+
+.gamemode_options ul li {
+  list-style: none;
+  margin-bottom: 0;
+}
+
+.gamemode_options ul li p {
+  font-size: 20px;
+}
+
+.gamemode_dropdown {
+  position: relative;
+  width: 200px;
+  height: 90px;
+}
+
+.gamemode_dropdown .gamemode_dropdown_button {
+  width: 200px;
+  height: 30px;
+  border: 2px solid rgb(212, 212, 212);
+  border-radius: 10px;
+  background: transparent;
+  color: rgb(212, 212, 212);
+  font-size: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.gamemode_dropdown button:hover {
+  color: white;
+}
+
+.gamemode_dropdown_options {
+  visibility: hidden;
+  position: absolute;
+  background: transparent;
+  width: 200px;
+  height: 60px;
+  text-align: center;
+}
+
+.gamemode_dropdown_options ul {
+  padding: 0;
+  margin: 0;
+}
+
+.gamemode_dropdown_options ul li {
+  list-style: none;
+}
+
+.gamemode_dropdown_options ul li button {
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  color: rgb(212, 212, 212);
+}
+
+.psettings {
+  visibility: hidden;
+}
+
+.psettings h1 {
+  color: aqua;
+  font: 50px;
+}
+
+.psession {
+  visibility: hidden;
+}
+
+.psession h1 {
+  color: aqua;
+  font: 50px;
+}
+
+.pclient {
+  visibility: hidden;
+}
+
+.pclient h1 {
+  color: aqua;
+  font: 50px;
+}

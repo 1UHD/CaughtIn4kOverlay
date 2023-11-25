@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>CaughtIn4k Overlay</title>
+    <link rel="stylesheet" href="index.css" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="sidebar">
+      <img src="assets/logo2fixed2.png" width="200px" height="66px">
+      <div class="play">
+        <ul>
+          <li><button class="button statsbutton" id="bstats"><i class="fa fa-home"></i> Stats</button></li>
+          <li><button class="button searchbutton" id="bsearch"><i class="fa fa-search"></i> Search</button></li>
+        </ul>
+      </div>
+      <div class="settings">
+        <ul>
+          <li><button class="button gamemodebutton" id="bgamemode"><i class="fa fa-rocket"></i> BedWars</button></li>
+          <li><button class="button settingsbutton" id="bsettings"><i class="fa fa-gear"></i> Settings</button></li>
+        </ul>
+      </div>
+      <div class="profile">
+        <ul>
+          <li><button class="button profilebutton" id="bsession"><i class="fa fa-user"></i> Session</button></li>
+          <li><button class="button clientbutton" id="bclient"><i class="fa fa-folder"></i> Lunar Client</button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mainframe">
+      <div class="pstats">
+        <h1>Stats</h1>
+      </div>
+      <div class="psearch">
+        <h1>Search</h1>
+      </div>
+      <div class="pgamemode">
+        <h1><i class="fa fa-rocket"></i> Game Mode</h1>
+        <div class="gamemode_options">
+          <ul>
+            <li><p>Change Gamemode:</p></li>
+            <div class="gamemode_dropdown"
+              <li><button class="gamemode_dropdown_button" id="gamemode_dropdown_button">None</button></li>
+              <div class="gamemode_dropdown_options">
+                <ul>
+                  <li><button class="gamemode_dropdown_option_bedwars", id="gamemode_dropdown_option_bedwars">BedWars</button></li>
+                  <li><button class="gamemode_dropdown_option_skywars", id="gamemode_dropdown_option_skywars">SkyWars</button></li>
+                </ul>
+              </div>
+            </div>
+          </ul>
+        </div>
+      </div>  
+      <div class="psettings">
+        <h1>Settings</h1>
+      </div>
+      <div class="psession">
+        <h1>Session</h1>
+      </div>
+      <div class="pclient">
+        <h1>Client</h1>
+      </div>
+    </div>
+  <script src="helper.js" defer></script>
+  </body>
+</html>
