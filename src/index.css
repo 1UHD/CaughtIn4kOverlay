@@ -121,20 +121,22 @@ body {
 
 .pstats {
   visibility: visible;
+  color: rgb(212, 212, 212);
 }
 
 .pstats h1 {
-  color: aqua;
-  font: 50px;
+  font-size: 25px;
+  padding: 10px;
 }
 
 .psearch {
   visibility: hidden;
+  color: rgb(212, 212, 212);
 }
 
 .psearch h1 {
-  color: aqua;
-  font: 50px;
+  font-size: 25px;
+  padding: 10px;
 }
 
 .pgamemode {
@@ -209,27 +211,55 @@ body {
 
 .psettings {
   visibility: hidden;
+  color: rgb(212, 212, 212);
 }
 
 .psettings h1 {
-  color: aqua;
-  font: 50px;
+  font-size: 25px;
+  padding: 10px;
+}
+
+.settings_options {
+  position: relative;
+}
+
+.settings_options ul li {
+  list-style: none;
+}
+
+.settings_options_visuals {
+  position: relative;
+}
+
+.settings_options_visuals ul {
+  padding: 0;
+  margin: 0;
+}
+
+.settings_options_visuals b {
+  font-size: 15px;
+}
+
+.settings_options_visuals ul li p {
+  font-size: 20px;
 }
 
 .psession {
   visibility: hidden;
+  color: rgb(212, 212, 212);
 }
 
 .psession h1 {
-  color: aqua;
-  font: 50px;
+  font-size: 25px;
+  padding: 10px;
 }
 
 .pclient {
   visibility: hidden;
+  color: rgb(212, 212, 212);
 }
 
 .pclient h1 {
-  color: aqua;
-  font: 50px;
+  font-size: 25px;
+  padding: 10px;
 }

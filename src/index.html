@@ -31,10 +31,10 @@
     </div>
     <div class="mainframe">
       <div class="pstats">
-        <h1>Stats</h1>
+        <h1><i class="fa fa-home"></i> Stats</h1>
       </div>
       <div class="psearch">
-        <h1>Search</h1>
+        <h1><i class="fa fa-search"></i> Search</h1>
       </div>
       <div class="pgamemode">
         <h1><i class="fa fa-rocket"></i> Game Mode</h1>
@@ -54,13 +54,24 @@
         </div>
       </div>  
       <div class="psettings">
-        <h1>Settings</h1>
-      </div>
+        <h1><i class="fa fa-gear"></i> Settings</h1>
+        <div class="settings_options">
+          <ul>
+            <li><div class="settings_options_visuals">
+              <b>VISUAL SETTINGS</b>
+              <ul>
+                <li><p id="settings_options_visuals_alpha">Background Alpha [0]:</p></li>
+                <li><input type="range" id="settings_options_visuals_bgalpha_drawbar" min="0" max="10" step="1" value="10"/></li>
+              </ul>
+            </div></li>
+          </ul>
+        </div>
+      </div> 
       <div class="psession">
-        <h1>Session</h1>
+        <h1><i class="fa fa-user"></i> Session</h1>
       </div>
       <div class="pclient">
-        <h1>Client</h1>
+        <h1><i class="fa fa-folder"></i> Client</h1>
       </div>
     </div>
   <script src="helper.js" defer></script>

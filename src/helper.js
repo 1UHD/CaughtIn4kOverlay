@@ -93,3 +93,15 @@ gamemode_dropdown_option_skywars.addEventListener("click", function() {
     document.getElementById("bgamemode").innerHTML = '<i class="fa fa-rocket"></i> SkyWars'
     can_change_menu = true
 })
+
+settings_options_visuals_bgalpha_drawbar.addEventListener("input", function() {
+    document.getElementById("settings_options_visuals_alpha").innerText = `Background Alpha [${settings_options_visuals_bgalpha_drawbar.value / 10}]:`
+    document.querySelector(".sidebar").style.backgroundColor = `rgba(36, 36, 36, ${settings_options_visuals_bgalpha_drawbar.value / 10})`
+    document.getElementById("bstats").style.backgroundColor = `rgba(36, 36, 36, ${settings_options_visuals_bgalpha_drawbar.value / 10})`
+    document.getElementById("bsearch").style.backgroundColor = `rgba(36, 36, 36, ${settings_options_visuals_bgalpha_drawbar.value / 10})`
+    document.getElementById("bgamemode").style.backgroundColor = `rgba(36, 36, 36, ${settings_options_visuals_bgalpha_drawbar.value / 10})`
+    document.getElementById("bsettings").style.backgroundColor = `rgba(36, 36, 36, ${settings_options_visuals_bgalpha_drawbar.value / 10})`
+    document.getElementById("bsession").style.backgroundColor = `rgba(36, 36, 36, ${settings_options_visuals_bgalpha_drawbar.value / 10})`
+    document.getElementById("bclient").style.backgroundColor = `rgba(36, 36, 36, ${settings_options_visuals_bgalpha_drawbar.value / 10})`
+    document.querySelector("body").style.backgroundColor = `rgba(36, 36, 36, ${settings_options_visuals_bgalpha_drawbar.value / 10})`
+})
