@@ -1,5 +1,6 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
+const ipc = ipcMain
 
 if (require('electron-squirrel-startup')) {
   app.quit();
@@ -10,15 +11,25 @@ const createWindow = () => {
     width: 800,
     height: 600,
     icon: __dirname + "/src/logo.png",
-    titleBarStyle: "hidden",
+    frame: false,
     resizable: false,
     webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
       preload: path.join(__dirname, 'preload.js'),
     },
   });
 
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
   //mainWindow.webContents.openDevTools();
+
+  ipc.on("closeApp", function() {
+    mainWindow.close()
+  })
+
+  ipc.on("minimizeApp", function() {
+    mainWindow.minimize()
+  })
 };
 //create and quit function
 app.on('ready', createWindow);

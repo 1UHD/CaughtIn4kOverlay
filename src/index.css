@@ -26,7 +26,7 @@ body {
 
 .title {
   flex-grow: 1;
-  text-align: center;
+  text-align: left;
   font-size: 20px;
   padding: 4px;
 }
@@ -36,8 +36,16 @@ body {
 }
 
 .controlbutton {
+  -webkit-app-region: no-drag;
   cursor: pointer;
-  padding: 0 8px;
+  padding: 0 10px;
+  border: none;
+  color: rgb(212, 212, 212);
+  background: transparent;
+}
+
+.controlbutton:hover {
+  color: white;
 }
 
 .content {
