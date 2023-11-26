@@ -10,7 +10,7 @@ const createWindow = () => {
     width: 800,
     height: 600,
     icon: __dirname + "/src/logo.png",
-    //titleBarStyle: "hidden",
+    titleBarStyle: "hidden",
     resizable: false,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),

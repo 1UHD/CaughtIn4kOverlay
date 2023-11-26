@@ -1,3 +1,13 @@
+document.getElementById("buttonminimize").addEventListener("click", function() {
+    //electron.ipcRenderer.send("minimizeApp")
+    alert("Test")
+})
+
+buttonclose.addEventListener("click", function() {
+    //electron.ipcRenderer.send("minimizeApp")
+    alert("Test")
+})
+
 let can_change_menu = true
 
 bstats.addEventListener("click", function() {
