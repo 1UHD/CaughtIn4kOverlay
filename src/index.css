@@ -3,6 +3,10 @@
   box-sizing: border-box;
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 body {
   margin: 0;
   padding: 0;
