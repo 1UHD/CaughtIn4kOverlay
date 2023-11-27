@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, ipcMain, globalShortcut } = require('electron');
 const path = require('path');
 const ipc = ipcMain
 
@@ -25,11 +25,25 @@ const createWindow = () => {
   //mainWindow.webContents.openDevTools();
 
   ipc.on("closeApp", function() {
-    mainWindow.close()
+    if(!mainWindow.isDestroyed()) {
+      mainWindow.close()
+    }
   })
 
   ipc.on("minimizeApp", function() {
-    mainWindow.minimize()
+    if(!mainWindow.isDestroyed()) {
+      mainWindow.minimize()
+    }
+  })
+
+  globalShortcut.register("CommandOrControl+Shift+H", function() {
+    if(!mainWindow.isDestroyed()) {
+      if(mainWindow.isVisible()) {
+        mainWindow.hide()
+      } else {
+        mainWindow.show()
+      }
+    }
   })
 };
 //create and quit function
