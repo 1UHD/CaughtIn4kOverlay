@@ -89,7 +89,7 @@ body {
   height: 30px;
   border: none;
   color: rgb(212, 212, 212);
-  background-color: #242424;
+  background: transparent;
   font-size: 20px;
   text-align: left;
 }
@@ -117,7 +117,7 @@ body {
   height: 30px;
   border: none;
   color: rgb(212, 212, 212);
-  background-color: #242424;
+  background: transparent;
   font-size: 20px;
   text-align: left;
 }
@@ -145,7 +145,7 @@ body {
   height: 30px;
   border: none;
   color: rgb(212, 212, 212);
-  background-color: #242424;
+  background: transparent;
   font-size: 20px;
   text-align: left;
 }

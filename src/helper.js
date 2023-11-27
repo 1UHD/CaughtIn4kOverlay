@@ -1,70 +1,34 @@
 let can_change_menu = true
 
-bstats.addEventListener("click", function() {
-    if(can_change_menu) {
-        document.querySelector(".pstats").style.visibility = "visible"
-        document.querySelector(".psearch").style.visibility = "hidden"
-        document.querySelector(".pgamemode").style.visibility = "hidden"
-        document.querySelector(".psettings").style.visibility = "hidden"
-        document.querySelector(".psession").style.visibility = "hidden"
-        document.querySelector(".pclient").style.visibility = "hidden"
-    }
-})
+let menus = [
+    "pstats",
+    "psearch",
+    "pgamemode",
+    "psettings",
+    "psession",
+    "pclient"
+]
 
-bsearch.addEventListener("click", function() {
-    if(can_change_menu) {
-        document.querySelector(".pstats").style.visibility = "hidden"
-        document.querySelector(".psearch").style.visibility = "visible"
-        document.querySelector(".pgamemode").style.visibility = "hidden"
-        document.querySelector(".psettings").style.visibility = "hidden"
-        document.querySelector(".psession").style.visibility = "hidden"
-        document.querySelector(".pclient").style.visibility = "hidden"
-    }
-})
+let menu_buttons = [
+    bstats,
+    bsearch,
+    bgamemode,
+    bsettings,
+    bsession,
+    bclient
+]
 
-bgamemode.addEventListener("click", function() {
-    if(can_change_menu) {
-        document.querySelector(".pstats").style.visibility = "hidden"
-        document.querySelector(".psearch").style.visibility = "hidden"
-        document.querySelector(".pgamemode").style.visibility = "visible"
-        document.querySelector(".psettings").style.visibility = "hidden"
-        document.querySelector(".psession").style.visibility = "hidden"
-        document.querySelector(".pclient").style.visibility = "hidden"
-    }
-})
 
-bsettings.addEventListener("click", function() {
-    if(can_change_menu) {
-        document.querySelector(".pstats").style.visibility = "hidden"
-        document.querySelector(".psearch").style.visibility = "hidden"
-        document.querySelector(".pgamemode").style.visibility = "hidden"
-        document.querySelector(".psettings").style.visibility = "visible"
-        document.querySelector(".psession").style.visibility = "hidden"
-        document.querySelector(".pclient").style.visibility = "hidden"
-    }
-})
-
-bsession.addEventListener("click", function() {
-    if(can_change_menu) {
-        document.querySelector(".pstats").style.visibility = "hidden"
-        document.querySelector(".psearch").style.visibility = "hidden"
-        document.querySelector(".pgamemode").style.visibility = "hidden"
-        document.querySelector(".psettings").style.visibility = "hidden"
-        document.querySelector(".psession").style.visibility = "visible"
-        document.querySelector(".pclient").style.visibility = "hidden"
-    }
-})
-
-bclient.addEventListener("click", function() {
-    if(can_change_menu) {
-        document.querySelector(".pstats").style.visibility = "hidden"
-        document.querySelector(".psearch").style.visibility = "hidden"
-        document.querySelector(".pgamemode").style.visibility = "hidden"
-        document.querySelector(".psettings").style.visibility = "hidden"
-        document.querySelector(".psession").style.visibility = "hidden"
-        document.querySelector(".pclient").style.visibility = "visible"
-    }
-})
+for(let i = 0; i < 6; i++) {
+    menu_buttons[i].addEventListener("click", function() {
+        if(can_change_menu) {
+            for(let j = 0; j < 6; j++) {
+                document.querySelector(`.${menus[j]}`).style.visibility = "hidden"
+            }
+            document.querySelector(`.${menus[i]}`).style.visibility = "visible"
+        }
+    })
+}
 
 gamemode_dropdown_button.addEventListener("click", function() {
     can_change_menu = false
@@ -95,13 +59,7 @@ gamemode_dropdown_option_skywars.addEventListener("click", function() {
 })
 
 settings_options_visuals_bgalpha_drawbar.addEventListener("input", function() {
-    document.getElementById("settings_options_visuals_alpha").innerText = `Background Alpha [${settings_options_visuals_bgalpha_drawbar.value / 10}]:`
     document.querySelector(".sidebar").style.backgroundColor = `rgba(36, 36, 36, ${settings_options_visuals_bgalpha_drawbar.value / 10})`
-    document.getElementById("bstats").style.backgroundColor = `rgba(36, 36, 36, ${settings_options_visuals_bgalpha_drawbar.value / 10})`
-    document.getElementById("bsearch").style.backgroundColor = `rgba(36, 36, 36, ${settings_options_visuals_bgalpha_drawbar.value / 10})`
-    document.getElementById("bgamemode").style.backgroundColor = `rgba(36, 36, 36, ${settings_options_visuals_bgalpha_drawbar.value / 10})`
-    document.getElementById("bsettings").style.backgroundColor = `rgba(36, 36, 36, ${settings_options_visuals_bgalpha_drawbar.value / 10})`
-    document.getElementById("bsession").style.backgroundColor = `rgba(36, 36, 36, ${settings_options_visuals_bgalpha_drawbar.value / 10})`
-    document.getElementById("bclient").style.backgroundColor = `rgba(36, 36, 36, ${settings_options_visuals_bgalpha_drawbar.value / 10})`
-    document.querySelector("body").style.backgroundColor = `rgba(36, 36, 36, ${settings_options_visuals_bgalpha_drawbar.value / 10})`
+    document.querySelector("body").style.backgroundColor = `rgba(51, 51, 51, ${settings_options_visuals_bgalpha_drawbar.value / 10})`
+    document.querySelector(".titlebar").style.backgroundColor = `rgba(0, 0, 0, ${settings_options_visuals_bgalpha_drawbar.value / 10})`
 })
