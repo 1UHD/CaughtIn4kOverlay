@@ -1,4 +1,5 @@
 let can_change_menu = true
+let selected_gamemode = "BedWars"
 
 let menus = [
     "pstats",
@@ -10,12 +11,12 @@ let menus = [
 ]
 
 let menu_buttons = [
-    bstats,
-    bsearch,
-    bgamemode,
-    bsettings,
-    bsession,
-    bclient
+    bstats = document.getElementById("bstats"),
+    bsearch = document.getElementById("bsearch"),
+    bgamemode = document.getElementById("bgamemode"),
+    bsettings = document.getElementById("bsettings"),
+    bsession = document.getElementById("bsession"),
+    bclient = document.getElementById("bclient"),
 ]
 
 
@@ -45,7 +46,14 @@ gamemode_dropdown_option_bedwars.addEventListener("click", function() {
     document.getElementById("gamemode_dropdown_button").style.borderRadius = "10px"
     document.getElementById("gamemode_dropdown_button").innerText = "BedWars"
     document.getElementById("bgamemode").innerHTML = "<i class='fa fa-rocket'></i> BedWars"
+    document.getElementById("th1").innerText = "Stars"
+    document.getElementById("th2").innerText = "Name"
+    document.getElementById("th3").innerText = "FKDR"
+    document.getElementById("th4").innerText = "Finals"
+    document.getElementById("th5").innerText = "Beds"
+    document.getElementById("th6").innerText = "Wins"
     can_change_menu = true
+    selected_gamemode = "BedWars"
 })
 
 gamemode_dropdown_option_skywars.addEventListener("click", function() {
@@ -55,7 +63,14 @@ gamemode_dropdown_option_skywars.addEventListener("click", function() {
     document.getElementById("gamemode_dropdown_button").style.borderRadius = "10px"
     document.getElementById("gamemode_dropdown_button").innerText = "SkyWars"
     document.getElementById("bgamemode").innerHTML = '<i class="fa fa-rocket"></i> SkyWars'
+    document.getElementById("th1").innerText = "Level"
+    document.getElementById("th2").innerText = "Name"
+    document.getElementById("th3").innerText = "KDR"
+    document.getElementById("th4").innerText = "Kills"
+    document.getElementById("th5").innerText = "WLR"
+    document.getElementById("th6").innerText = "Wins"
     can_change_menu = true
+    selected_gamemode = "SkyWars"
 })
 
 settings_options_visuals_bgalpha_drawbar.addEventListener("input", function() {

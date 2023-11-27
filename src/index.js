@@ -24,27 +24,8 @@ const createWindow = () => {
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
   //mainWindow.webContents.openDevTools();
 
-  ipc.on("closeApp", function() {
-    if(!mainWindow.isDestroyed()) {
-      mainWindow.close()
-    }
-  })
-
-  ipc.on("minimizeApp", function() {
-    if(!mainWindow.isDestroyed()) {
-      mainWindow.minimize()
-    }
-  })
-
-  globalShortcut.register("CommandOrControl+Shift+H", function() {
-    if(!mainWindow.isDestroyed()) {
-      if(mainWindow.isVisible()) {
-        mainWindow.hide()
-      } else {
-        mainWindow.show()
-      }
-    }
-  })
+  ipcListener(mainWindow)
+  keybindListener(mainWindow)
 };
 //create and quit function
 app.on('ready', createWindow);
@@ -59,3 +40,29 @@ app.on('activate', () => {
     createWindow();
   }
 });
+
+function ipcListener(mainWindow) {
+  ipc.on("closeApp", function() {
+    if(!mainWindow.isDestroyed()) {
+      mainWindow.close()
+    }
+  })
+
+  ipc.on("minimizeApp", function() {
+    if(!mainWindow.isDestroyed()) {
+      mainWindow.minimize()
+    }
+  })
+}
+
+function keybindListener(mainWindow) {
+  globalShortcut.register("CommandOrControl+Shift+H", function() {
+    if(!mainWindow.isDestroyed()) {
+      if(mainWindow.isVisible()) {
+        mainWindow.hide()
+      } else {
+        mainWindow.show()
+      }
+    }
+  })
+}

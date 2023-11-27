@@ -176,6 +176,21 @@ body {
   padding: 10px;
 }
 
+.statsdisplay table {
+  width: 600px;
+  border-collapse: collapse;
+}
+
+.statsdisplay table th {
+  text-align: center;
+  font-size: 20px;
+}
+
+.statsdisplay table tr {
+  text-align: center;
+  font-size: 15px;
+}
+
 .psearch {
   visibility: hidden;
   color: rgb(212, 212, 212);

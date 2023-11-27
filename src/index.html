@@ -42,6 +42,18 @@
       <div class="mainframe">
         <div class="pstats">
           <h1><i class="fa fa-home"></i> Stats</h1>
+          <div class="statsdisplay">
+            <table id="statstable">
+              <tr>
+                <th id="th1">Stars</th>
+                <th id="th2">Name</th>
+                <th id="th3">FKDR</th>
+                <th id="th4">Finals</th>
+                <th id="th5">Beds</th>
+                <th id="th6">Wins</th>
+              </tr>
+            </table>
+          </div>
         </div>
         <div class="psearch">
           <h1><i class="fa fa-search"></i> Search</h1>
@@ -52,7 +64,7 @@
             <ul>
               <li><p>Change Gamemode:</p></li>
               <div class="gamemode_dropdown"
-                <li><button class="gamemode_dropdown_button" id="gamemode_dropdown_button">None</button></li>
+                <li><button class="gamemode_dropdown_button" id="gamemode_dropdown_button">BedWars</button></li>
                 <div class="gamemode_dropdown_options">
                   <ul>
                     <li><button class="gamemode_dropdown_option_bedwars", id="gamemode_dropdown_option_bedwars">BedWars</button></li>
@@ -85,6 +97,7 @@
         </div>
       </div>
     </div>
+    <script src="statstable.js"></script>
     <script src="titlebar.js"></script>
     <script src="helper.js"></script>
   </body>
