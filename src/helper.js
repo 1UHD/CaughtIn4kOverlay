@@ -78,3 +78,51 @@ settings_options_visuals_bgalpha_drawbar.addEventListener("input", function() {
     document.querySelector("body").style.backgroundColor = `rgba(51, 51, 51, ${settings_options_visuals_bgalpha_drawbar.value / 10})`
     document.querySelector(".titlebar").style.backgroundColor = `rgba(0, 0, 0, ${settings_options_visuals_bgalpha_drawbar.value / 10})`
 })
+
+client_dropdown_button.addEventListener("click", function() {
+    can_change_menu = false
+    document.querySelector(".client_dropdown_options").style.visibility = "visible"
+    document.querySelector(".client_dropdown").style.border = "2px solid rgb(212, 212, 212)"
+    document.querySelector(".client_dropdown").style.borderRadius = "10px"
+    document.getElementById("client_dropdown_button").style.border = "none"
+})
+
+client_dropdown_option_lc.addEventListener("click", function() {
+    document.querySelector(".client_dropdown_options").style.visibility = "hidden"
+    document.querySelector(".client_dropdown").style.border = "none"
+    document.getElementById("client_dropdown_button").style.border = "2px solid rgb(212, 212, 212)"
+    document.getElementById("client_dropdown_button").style.borderRadius = "10px"
+    document.getElementById("client_dropdown_button").innerText = "Lunar Client"
+    document.getElementById("bclient").innerHTML = "<i class='fa fa-folder'></i> Lunar Client"
+    can_change_menu = true
+})
+
+client_dropdown_option_blc.addEventListener("click", function() {
+    document.querySelector(".client_dropdown_options").style.visibility = "hidden"
+    document.querySelector(".client_dropdown").style.border = "none"
+    document.getElementById("client_dropdown_button").style.border = "2px solid rgb(212, 212, 212)"
+    document.getElementById("client_dropdown_button").style.borderRadius = "10px"
+    document.getElementById("client_dropdown_button").innerText = "Badlion Client"
+    document.getElementById("bclient").innerHTML = "<i class='fa fa-folder'></i> Badlion Client"
+    can_change_menu = true
+})
+
+client_dropdown_option_fc.addEventListener("click", function() {
+    document.querySelector(".client_dropdown_options").style.visibility = "hidden"
+    document.querySelector(".client_dropdown").style.border = "none"
+    document.getElementById("client_dropdown_button").style.border = "2px solid rgb(212, 212, 212)"
+    document.getElementById("client_dropdown_button").style.borderRadius = "10px"
+    document.getElementById("client_dropdown_button").innerText = "Feather Client"
+    document.getElementById("bclient").innerHTML = "<i class='fa fa-folder'></i> Feather Client"
+    can_change_menu = true
+})
+
+client_dropdown_option_v.addEventListener("click", function() {
+    document.querySelector(".client_dropdown_options").style.visibility = "hidden"
+    document.querySelector(".client_dropdown").style.border = "none"
+    document.getElementById("client_dropdown_button").style.border = "2px solid rgb(212, 212, 212)"
+    document.getElementById("client_dropdown_button").style.borderRadius = "10px"
+    document.getElementById("client_dropdown_button").innerText = "Vanilla"
+    document.getElementById("bclient").innerHTML = "<i class='fa fa-folder'></i> Vanilla"
+    can_change_menu = true
+})
