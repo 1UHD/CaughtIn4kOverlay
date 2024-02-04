@@ -21,6 +21,7 @@
     --font-minecraft: "Minecraft", sans-serif;
 
     --text-color-preview: rgba(212, 212, 212, 1);
+    --highlight-color-preview: rgba(255, 255, 255, 1);
 
     --tran-02: all 0.2s ease;
     --tran-03: all 0.3s ease;
@@ -56,6 +57,8 @@ body {
     border: none;
     background: none;
     cursor: pointer;
+    user-select: none;
+    -webkit-user-drag: none;
     -webkit-app-region: no-drag;
 }
 
@@ -225,6 +228,7 @@ body {
     padding: 10px;
     align-items: center;
     display: flex;
+    cursor: pointer;
 }
 
 .buttons button img {
@@ -493,6 +497,7 @@ body {
     position: absolute;
     padding: 5px;
     margin-left: calc((600px + 100vw - 1000px)/2);
+    cursor: pointer;
 }
 
 .color_preview_and_hex button:hover {
@@ -516,5 +521,175 @@ body {
     font-size: 14px;
     text-align: right;
     color: var(--text-color-preview);
+    font-family: var(--font-minecraft);
+}
+
+.heading_text_color {
+    margin: 10px;
+    margin-top: 30px;
+}
+
+.heading_text_color h1 {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--highlight-color);
+}
+
+.heading_text_color_slider_red,
+.heading_text_color_slider_green,
+.heading_text_color_slider_blue,
+.heading_text_color_slider_alpha {
+    margin-left: 10px;
+    margin-top: 5px;
+    position: relative;
+    display: flex;
+    flex-direction: column;   
+}
+
+.heading_text_color_slider_red p,
+.heading_text_color_slider_green p,
+.heading_text_color_slider_blue p,
+.heading_text_color_slider_alpha p {
+    width: 150px;
+    color: var(--text-color);
+    font-size: 15px;
+}
+
+.heading_text_color_slider_red #heading_text_color_red_slider,
+.heading_text_color_slider_green #heading_text_color_green_slider,
+.heading_text_color_slider_blue #heading_text_color_blue_slider,
+.heading_text_color_slider_alpha #heading_text_color_alpha_slider {
+    width: calc(500px + 100vw - 1000px);
+    position: absolute;
+    margin-left: 75px;
+    margin-top: 9px;
+    -webkit-appearance: none;
+    height: 5px;
+    background-color: var(--text-color);
+    outline: none;
+}
+
+.heading_text_color_slider_red #heading_text_color_red_slider::-webkit-slider-thumb,
+.heading_text_color_slider_green #heading_text_color_green_slider::-webkit-slider-thumb,
+.heading_text_color_slider_blue #heading_text_color_blue_slider::-webkit-slider-thumb,
+.heading_text_color_slider_alpha #heading_text_color_alpha_slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    background-color: var(--options-color);
+}
+
+.heading_text_color_slider_red #heading_text_color_red_slider::-webkit-slider-thumb {
+    border: 3px solid red;
+}
+
+.heading_text_color_slider_green #heading_text_color_green_slider::-webkit-slider-thumb {
+    border: 3px solid green;
+}
+
+.heading_text_color_slider_blue #heading_text_color_blue_slider::-webkit-slider-thumb {
+    border: 3px solid blue;
+}
+
+.heading_text_color_slider_alpha #heading_text_color_alpha_slider::-webkit-slider-thumb {
+    border: 3px solid gray;
+}
+
+.heading_text_color_slider_red #heading_text_color_red_slider_value,
+.heading_text_color_slider_green #heading_text_color_green_slider_value,
+.heading_text_color_slider_blue #heading_text_color_blue_slider_value,
+.heading_text_color_slider_alpha #heading_text_color_alpha_slider_value {
+    position: absolute;
+    margin-left: calc(600px + 100vw - 1000px);
+    width: 50px;
+    background: transparent;
+    border: none;
+    font-size: 14px;
+    text-align: right;
+    color: var(--text-color);
+    font-family: var(--font-minecraft);
+}
+
+.heading_text_color_slider_red #heading_text_color_red_slider_value::-webkit-inner-spin-button,
+.heading_text_color_slider_red #heading_text_color_red_slider_value::-webkit-outer-spin-button,
+.heading_text_color_slider_green #heading_text_color_green_slider_value::-webkit-inner-spin-button,
+.heading_text_color_slider_green #heading_text_color_green_slider_value::-webkit-outer-spin-button,
+.heading_text_color_slider_blue #heading_text_color_blue_slider_value::-webkit-inner-spin-button,
+.heading_text_color_slider_blue #heading_text_color_blue_slider_value::-webkit-outer-spin-button,
+.heading_text_color_slider_alpha #heading_text_color_alpha_slider_value::-webkit-inner-spin-button,
+.heading_text_color_slider_alpha #heading_text_color_alpha_slider_value::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+.heading_text_color_slider_red #heading_text_color_red_slider_value::placeholder,
+.heading_text_color_slider_green #heading_text_color_green_slider_value::placeholder,
+.heading_text_color_slider_blue #heading_text_color_blue_slider_value::placeholder,
+.heading_text_color_slider_alpha #heading_text_color_alpha_slider_value::placeholder {
+    text-align: right;
+    font-size: 14px;
+    color: var(--text-color);
+    font-family: var(--font-minecraft);
+}
+
+.heading_color_preview_and_hex {
+    position: relative;
+    height: 30px;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.heading_color_preview_and_hex p {
+    position: absolute;
+    font-size: 14px;
+    color: var(--text-color);
+    font-family: var(--font-minecraft);
+}
+
+.heading_color_preview_and_hex p#heading_color_preview_hex {
+    margin-left: calc(530px + 100vw - 1000px);
+}
+
+.heading_color_preview {
+    position: absolute;
+    height: 20px;
+    width: 30px;
+    border: 3px solid var(--sidebar-color);
+    background-color: var(--highlight-color-preview);
+    margin-left: 80px;
+}
+
+.heading_color_preview_and_hex button {
+    font-family: var(--font-minecraft);
+    color: var(--text-color);
+    font-size: 14px;
+    background: transparent;
+    border: 2px solid var(--text-color);
+    position: absolute;
+    padding: 5px;
+    margin-left: calc((600px + 100vw - 1000px)/2);
+    cursor: pointer;
+}
+
+.heading_color_preview_and_hex button:hover {
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.heading_color_preview_and_hex input {
+    position: absolute;
+    width: 80px;
+    text-align: right;
+    margin-left: calc(570px + 100vw - 1000px);
+    font-size: 14px;
+    color: var(--text-color);
+    font-family: var(--font-minecraft);
+    background: transparent;
+    border: none;
+}
+
+.heading_color_preview_and_hex input::placeholder {
+    font-size: 14px;
+    text-align: right;
+    color: var(--highlight-color-preview);
     font-family: var(--font-minecraft);
 }

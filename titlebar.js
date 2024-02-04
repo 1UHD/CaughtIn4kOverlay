@@ -210,3 +210,105 @@ text_color_hex_input.addEventListener("keypress", function(event) {
 apply_text_color_button.addEventListener("click", function() {
     change_text_color(red_slider_value.value, green_slider_value.value, blue_slider_value.value, alpha_slider_value.value)
 })
+
+//HEADING COLOR CHANGER
+var heading_red_slider_value = document.getElementById("heading_text_color_red_slider")
+var heading_red_slider_value_value = document.getElementById("heading_text_color_red_slider_value")
+var heading_green_slider_value = document.getElementById("heading_text_color_green_slider")
+var heading_green_slider_value_value = document.getElementById("heading_text_color_green_slider_value")
+var heading_blue_slider_value = document.getElementById("heading_text_color_blue_slider")
+var heading_blue_slider_value_value = document.getElementById("heading_text_color_blue_slider_value")
+var heading_alpha_slider_value = document.getElementById("heading_text_color_alpha_slider")
+var heading_alpha_slider_value_value = document.getElementById("heading_text_color_alpha_slider_value")
+var heading_hex_value = document.getElementById("heading_text_color_hex_input")
+
+function heading_change_text_color(r, g, b, a) {
+    document.documentElement.style.setProperty("--highlight-color", `rgba(${r}, ${g}, ${b}, ${a})`)
+}
+
+function heading_change_text_color_preview(r, g, b, a) {
+    document.documentElement.style.setProperty("--highlight-color-preview", `rgba(${r}, ${g}, ${b}, ${a})`)
+}
+
+heading_text_color_red_slider.addEventListener("input", function() {
+    document.getElementById("heading_text_color_red_slider_value").placeholder = heading_red_slider_value.value
+    heading_change_text_color_preview(heading_red_slider_value.value, heading_green_slider_value.value, heading_blue_slider_value.value, heading_alpha_slider_value.value)
+    document.getElementById("heading_text_color_hex_input").placeholder = rgbToHex(heading_red_slider_value.value, heading_green_slider_value.value, heading_blue_slider_value.value)
+})
+
+heading_text_color_green_slider.addEventListener("input", function() {
+    document.getElementById("heading_text_color_green_slider_value").placeholder = heading_green_slider_value.value
+    heading_change_text_color_preview(heading_red_slider_value.value, heading_green_slider_value.value, heading_blue_slider_value.value, heading_alpha_slider_value.value)
+    document.getElementById("heading_text_color_hex_input").placeholder = rgbToHex(heading_red_slider_value.value, heading_green_slider_value.value, heading_blue_slider_value.value)
+})
+
+heading_text_color_blue_slider.addEventListener("input", function() {
+    document.getElementById("heading_text_color_blue_slider_value").placeholder = heading_blue_slider_value.value
+    heading_change_text_color_preview(heading_red_slider_value.value, heading_green_slider_value.value, heading_blue_slider_value.value, heading_alpha_slider_value.value)
+    document.getElementById("heading_text_color_hex_input").placeholder = rgbToHex(heading_red_slider_value.value, heading_green_slider_value.value, heading_blue_slider_value.value)
+})
+
+heading_text_color_alpha_slider.addEventListener("input", function() {
+    document.getElementById("heading_text_color_alpha_slider_value").placeholder = heading_alpha_slider_value.value
+    heading_change_text_color_preview(heading_red_slider_value.value, heading_green_slider_value.value, heading_blue_slider_value.value, heading_alpha_slider_value.value)
+    document.getElementById("heading_text_color_hex_input").placeholder = rgbToHex(heading_red_slider_value.value, heading_green_slider_value.value, heading_blue_slider_value.value)
+})
+
+heading_text_color_red_slider_value.addEventListener("keypress", function(event) {
+    if(event.key === "Enter") {
+        heading_red_slider_value.value = heading_red_slider_value_value.value
+        heading_red_slider_value_value.value = ""
+        document.getElementById("heading_text_color_red_slider_value").placeholder = heading_red_slider_value.value
+        heading_change_text_color_preview(heading_red_slider_value.value, heading_green_slider_value.value, heading_blue_slider_value.value, heading_alpha_slider_value.value)
+        document.getElementById("heading_text_color_hex_input").placeholder = rgbToHex(heading_red_slider_value.value, heading_green_slider_value.value, heading_blue_slider_value.value)
+    }
+})
+
+heading_text_color_green_slider_value.addEventListener("keypress", function(event) {
+    if(event.key === "Enter") {
+        heading_green_slider_value.value = heading_green_slider_value_value.value
+        heading_green_slider_value_value.value = ""
+        document.getElementById("heading_text_color_green_slider_value").placeholder = heading_green_slider_value.value
+        heading_change_text_color_preview(heading_red_slider_value.value, heading_green_slider_value.value, heading_blue_slider_value.value, heading_alpha_slider_value.value)
+        document.getElementById("heading_text_color_hex_input").placeholder = rgbToHex(heading_red_slider_value.value, heading_green_slider_value.value, heading_blue_slider_value.value)
+    }
+})
+
+heading_text_color_blue_slider_value.addEventListener("keypress", function(event) {
+    if(event.key === "Enter") {
+        heading_blue_slider_value.value = heading_blue_slider_value_value.value
+        heading_blue_slider_value_value.value = ""
+        document.getElementById("heading_text_color_blue_slider_value").placeholder = heading_blue_slider_value.value
+        heading_change_text_color_preview(heading_red_slider_value.value, heading_green_slider_value.value, heading_blue_slider_value.value, heading_alpha_slider_value.value)
+        document.getElementById("heading_text_color_hex_input").placeholder = rgbToHex(heading_red_slider_value.value, heading_green_slider_value.value, heading_blue_slider_value.value)
+    }
+})
+
+heading_text_color_alpha_slider_value.addEventListener("keypress", function(event) {
+    if(event.key === "Enter") {
+        heading_alpha_slider_value.value = heading_alpha_slider_value_value.value
+        heading_alpha_slider_value_value.value = ""
+        document.getElementById("heading_text_color_alpha_slider_value").placeholder = heading_alpha_slider_value.value
+        heading_change_text_color_preview(heading_red_slider_value.value, heading_green_slider_value.value, heading_blue_slider_value.value, heading_alpha_slider_value.value)
+        document.getElementById("heading_text_color_hex_input").placeholder = rgbToHex(heading_red_slider_value.value, heading_green_slider_value.value, heading_blue_slider_value.value)
+    }
+})
+
+heading_text_color_hex_input.addEventListener("keypress", function(event) {
+    if(event.key === "Enter") {
+        let heading_rgb_values = hexToRgb(heading_hex_value.value)
+        document.getElementById("heading_text_color_red_slider_value").placeholder = heading_rgb_values[0]
+        document.getElementById("heading_text_color_green_slider_value").placeholder = heading_rgb_values[1]
+        document.getElementById("heading_text_color_blue_slider_value").placeholder = heading_rgb_values[2]
+        heading_red_slider_value.value = heading_rgb_values[0]
+        heading_green_slider_value.value = heading_rgb_values[1]
+        heading_blue_slider_value.value = heading_rgb_values[2]
+        heading_hex_value.value = ""
+        heading_change_text_color_preview(heading_red_slider_value.value, heading_green_slider_value.value, heading_blue_slider_value.value, heading_alpha_slider_value.value)
+        document.getElementById("heading_text_color_hex_input").placeholder = rgbToHex(heading_red_slider_value.value, heading_green_slider_value.value, heading_blue_slider_value.value)
+    }
+})
+
+heading_apply_text_color_button.addEventListener("click", function() {
+    heading_change_text_color(heading_red_slider_value.value, heading_green_slider_value.value, heading_blue_slider_value.value, heading_alpha_slider_value.value)
+})
