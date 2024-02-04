@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>CaughtIn4k</title>
+        <link rel="stylesheet" href="index.css" />
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        
+        <div class="titlebar">
+            <div class="watermark">
+                <button class="menu_button" id="menu_button">
+                    <img src="assets/logo.png" alt="logo and menu button">
+                </button>
+            </div>
+            <div class="name">
+                <img src="assets/title.png" alt="title">
+            </div>
+            <div class="search">
+                <input type="text" placeholder="Search player">
+            </div>
+            <div class="manage_app_icons">
+                <div class="close_button">
+                    <button class="custom_minimize_button" id="custom_minimize_button">
+                        <img src="assets/minimize inactive.png" alt="Minimize Buttoné" class="minimize_inactive">
+                        <img src="assets/minimize active.png" alt="Minimize Buttoné" class="minimize_active">
+                        <img src="assets/minimize pressed.png" alt="Minimize Buttoné" class="minimize_pressed">
+                    </button>
+                    <button class="custom_close_button" id="custom_close_button">
+                        <img src="assets/close inactive.png" alt="Close Buttoné" class="close_inactive">
+                        <img src="assets/close active.png" alt="Close Buttoné" class="close_active">
+                        <img src="assets/close pressed.png" alt="Close Buttoné" class="close_pressed">
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="profile_menu">
+                <div class="profile_heading">
+                    <h1>PROFILE</h1>
+                </div>
+            </div>
+            <div class="settings_menu">
+                <h1>SETTINGS</h1>
+            </div>
+            <div class="shortcuts_menu">
+                <h1>SHORTCUTS</h1>
+            </div>
+            <div class="appearance_menu">
+                <div class="appearance_heading">
+                    <h1>APPEARANCE</h1>
+                </div>
+                <div class="appearance_text">
+                    <div class="appearance_text_border_gap">TEXT SETTINGS</div>
+                    <div class="font_family">
+                        <p>FONT FAMILY</p>
+                        <div class="font_family_buttons">
+                            <button class="font_family_button_minecraft" id="font_family_button_minecraft">MINECRAFT</button>
+                            <button class="font_family_button_menlo" id="font_family_button_menlo">MENLO</button>
+                            <button class="font_family_button_poppins" id="font_family_button_poppins">POPPINS</button>
+                        </div>
+                    </div>
+                    <div class="text_color">
+                        <h1>TEXT COLOR</h1>
+                        <div class="text_color_slider_red">
+                            <p>RED</p>
+                            <input type="range" id="text_color_red_slider" min="0" max="255" step="1" value="212">
+                            <input type="number" id="text_color_red_slider_value" placeholder="212" min="0" max="255" step="1">
+                        </div>
+                        <div class="text_color_slider_green">
+                            <p>GREEN</p>
+                            <input type="range" id="text_color_green_slider" min="0" max="255" step="1" value="212">
+                            <input type="number" id="text_color_green_slider_value" placeholder="212" min="0" max="255" step="1">
+                        </div>
+                        <div class="text_color_slider_blue">
+                            <p>BLUE</p>
+                            <input type="range" id="text_color_blue_slider" min="0" max="255" step="1" value="212">
+                            <input type="number" id="text_color_blue_slider_value" placeholder="212" min="0" max="255" step="1">
+                        </div>
+                        <div class="text_color_slider_alpha">
+                            <p>ALPHA</p>
+                            <input type="range" id="text_color_alpha_slider" min="0" max="1" step="0.1" value="1">
+                            <input type="number" id="text_color_alpha_slider_value" placeholder="1" min="0" max="1" step="0.1">
+                        </div>
+                        <div class="color_preview_and_hex">
+                            <p id="color_preview_preview">PREVIEW : </p>
+                            <div class="color_preview"></div>
+                            <button class="apply_text_color_button" id="apply_text_color_button">APPLY</button>
+                            <p id="color_preview_hex">HEX : </p>
+                            <input type="text" placeholder="#D4D4D4">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="antisniper_menu">
+                <h1>ANTISNIPER</h1>
+            </div>
+            <div class="menu">
+                <div class="buttons">
+                    <button class="profile_button" id="profile_button">
+                        <img src="assets/account active.png" alt="profile" class="account_active">
+                        <img src="assets/account inactive.png" alt="profile" class="account_inactive">
+                        <p>PROFILE</p>
+                    </button>
+                    <button class="settings_button" id="settings_button">
+                        <img src="assets/settings active.png" alt="settings" class="settings_active">
+                        <img src="assets/settings inactive.png" alt="settings" class="settings_inactive">
+                        <p>SETTINGS</p>
+                    </button>
+                    <button class="shortcuts_button" id="shortcuts_button">
+                        <img src="assets/keyboard active.png" alt="shortcuts" class="keyboard_active">
+                        <img src="assets/keyboard inactive.png" alt="shortcuts" class="keyboard_inactive">
+                        <p>SHORTCUTS</p>
+                    </button>
+                    <button class="appearance_button" id="appearance_button">
+                        <img src="assets/appearance active.png" alt="appearance" class="appearance_active">
+                        <img src="assets/appearance inactive.png" alt="appearance" class="appearance_inactive">
+                        <p>APPEARANCE</p>
+                    </button>
+                    <button class="antisniper_button" id="antisniper_button">
+                        <img src="assets/antisniper active.png" alt="antisniper" class="antisniper_active">
+                        <img src="assets/antisniper inactive.png" alt="antisniper" class="antisniper_inactive">
+                        <p>ANTISNIPER</p>
+                    </button>
+                </div>
+            </div>
+            <table>
+                <tr>
+                    <th>STARS</th>
+                    <th>NAME</th>
+                    <th>TAG</th>
+                    <th>WS</th>
+                    <th>FINALS</th>
+                    <th>FKDR</th>
+                    <th>WINS</th>
+                    <th>WLR</th>
+                </tr>
+                <tr>
+                    <td>[1023]</td>
+                    <td>[MVP++] bananajoeYT</td>
+                    <td>SWEATY GAMER</td>
+                    <td>1021</td>
+                    <td>167012</td>
+                    <td>103.69</td>
+                    <td>109012</td>
+                    <td>72.77</td>
+                </tr>
+            </table>
+        </div>
+
+        <script src="titlebar.js"></script>
+    </body>
+</html>
