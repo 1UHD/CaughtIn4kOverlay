@@ -85,3 +85,128 @@ for(let i = 0; i < 3; i++) {
 }
 
 //FONT COLOR CHANGER
+var red_slider_value = document.getElementById("text_color_red_slider")
+var red_slider_value_value = document.getElementById("text_color_red_slider_value")
+var green_slider_value = document.getElementById("text_color_green_slider")
+var green_slider_value_value = document.getElementById("text_color_green_slider_value")
+var blue_slider_value = document.getElementById("text_color_blue_slider")
+var blue_slider_value_value = document.getElementById("text_color_blue_slider_value")
+var alpha_slider_value = document.getElementById("text_color_alpha_slider")
+var alpha_slider_value_value = document.getElementById("text_color_alpha_slider_value")
+var hex_value = document.getElementById("text_color_hex_input")
+
+function change_text_color(r, g, b, a) {
+    document.documentElement.style.setProperty("--text-color", `rgba(${r}, ${g}, ${b}, ${a})`)
+}
+
+function change_text_color_preview(r, g, b, a) {
+    document.documentElement.style.setProperty("--text-color-preview", `rgba(${r}, ${g}, ${b}, ${a})`)
+}
+
+function hexToRgb(hex) {
+    hex = hex.replace(/^#/, '')
+
+    let bigint = parseInt(hex, 16)
+    let r = (bigint >> 16) & 255
+    let g = (bigint >> 8) & 255
+    let b = bigint & 255
+
+    return [r, g, b]
+}
+
+function rgbToHex(r, g, b) {
+    r = Math.min(255, Math.max(0, r))
+    g = Math.min(255, Math.max(0, g))
+    b = Math.min(255, Math.max(0, b))
+
+    let hexR = r.toString(16).padStart(2, '0')
+    let hexG = g.toString(16).padStart(2, '0')
+    let hexB = b.toString(16).padStart(2, '0')
+
+    let hexColor = `#${hexR}${hexG}${hexB}`
+
+    return hexColor.toUpperCase()
+}
+
+text_color_red_slider.addEventListener("input", function() {
+    document.getElementById("text_color_red_slider_value").placeholder = red_slider_value.value
+    change_text_color_preview(red_slider_value.value, green_slider_value.value, blue_slider_value.value, alpha_slider_value.value)
+    document.getElementById("text_color_hex_input").placeholder = rgbToHex(red_slider_value.value, green_slider_value.value, blue_slider_value.value)
+})
+
+text_color_green_slider.addEventListener("input", function() {
+    document.getElementById("text_color_green_slider_value").placeholder = green_slider_value.value
+    change_text_color_preview(red_slider_value.value, green_slider_value.value, blue_slider_value.value, alpha_slider_value.value)
+    document.getElementById("text_color_hex_input").placeholder = rgbToHex(red_slider_value.value, green_slider_value.value, blue_slider_value.value)
+})
+
+text_color_blue_slider.addEventListener("input", function() {
+    document.getElementById("text_color_blue_slider_value").placeholder = blue_slider_value.value
+    change_text_color_preview(red_slider_value.value, green_slider_value.value, blue_slider_value.value, alpha_slider_value.value)
+    document.getElementById("text_color_hex_input").placeholder = rgbToHex(red_slider_value.value, green_slider_value.value, blue_slider_value.value)
+})
+
+text_color_alpha_slider.addEventListener("input", function() {
+    document.getElementById("text_color_alpha_slider_value").placeholder = alpha_slider_value.value
+    change_text_color_preview(red_slider_value.value, green_slider_value.value, blue_slider_value.value, alpha_slider_value.value)
+    document.getElementById("text_color_hex_input").placeholder = rgbToHex(red_slider_value.value, green_slider_value.value, blue_slider_value.value)
+})
+
+text_color_red_slider_value.addEventListener("keypress", function(event) {
+    if(event.key === "Enter") {
+        red_slider_value.value = red_slider_value_value.value
+        red_slider_value_value.value = ""
+        document.getElementById("text_color_red_slider_value").placeholder = red_slider_value.value
+        change_text_color_preview(red_slider_value.value, green_slider_value.value, blue_slider_value.value, alpha_slider_value.value)
+        document.getElementById("text_color_hex_input").placeholder = rgbToHex(red_slider_value.value, green_slider_value.value, blue_slider_value.value)
+    }
+})
+
+text_color_green_slider_value.addEventListener("keypress", function(event) {
+    if(event.key === "Enter") {
+        green_slider_value.value = green_slider_value_value.value
+        green_slider_value_value.value = ""
+        document.getElementById("text_color_green_slider_value").placeholder = green_slider_value.value
+        change_text_color_preview(red_slider_value.value, green_slider_value.value, blue_slider_value.value, alpha_slider_value.value)
+        document.getElementById("text_color_hex_input").placeholder = rgbToHex(red_slider_value.value, green_slider_value.value, blue_slider_value.value)
+    }
+})
+
+text_color_blue_slider_value.addEventListener("keypress", function(event) {
+    if(event.key === "Enter") {
+        blue_slider_value.value = blue_slider_value_value.value
+        blue_slider_value_value.value = ""
+        document.getElementById("text_color_blue_slider_value").placeholder = blue_slider_value.value
+        change_text_color_preview(red_slider_value.value, green_slider_value.value, blue_slider_value.value, alpha_slider_value.value)
+        document.getElementById("text_color_hex_input").placeholder = rgbToHex(red_slider_value.value, green_slider_value.value, blue_slider_value.value)
+    }
+})
+
+text_color_alpha_slider_value.addEventListener("keypress", function(event) {
+    if(event.key === "Enter") {
+        alpha_slider_value.value = alpha_slider_value_value.value
+        alpha_slider_value_value.value = ""
+        document.getElementById("text_color_alpha_slider_value").placeholder = alpha_slider_value.value
+        change_text_color_preview(red_slider_value.value, green_slider_value.value, blue_slider_value.value, alpha_slider_value.value)
+        document.getElementById("text_color_hex_input").placeholder = rgbToHex(red_slider_value.value, green_slider_value.value, blue_slider_value.value)
+    }
+})
+
+text_color_hex_input.addEventListener("keypress", function(event) {
+    if(event.key === "Enter") {
+        let rgb_values = hexToRgb(hex_value.value)
+        document.getElementById("text_color_red_slider_value").placeholder = rgb_values[0]
+        document.getElementById("text_color_green_slider_value").placeholder = rgb_values[1]
+        document.getElementById("text_color_blue_slider_value").placeholder = rgb_values[2]
+        red_slider_value.value = rgb_values[0]
+        green_slider_value.value = rgb_values[1]
+        blue_slider_value.value = rgb_values[2]
+        hex_value.value = ""
+        change_text_color_preview(red_slider_value.value, green_slider_value.value, blue_slider_value.value, alpha_slider_value.value)
+        document.getElementById("text_color_hex_input").placeholder = rgbToHex(red_slider_value.value, green_slider_value.value, blue_slider_value.value)
+    }
+})
+
+apply_text_color_button.addEventListener("click", function() {
+    change_text_color(red_slider_value.value, green_slider_value.value, blue_slider_value.value, alpha_slider_value.value)
+})
