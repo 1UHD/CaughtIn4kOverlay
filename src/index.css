@@ -285,6 +285,104 @@ body {
     padding: 10px;
 }
 
+.player_settings {
+    width: calc(730px + 100vw - 1000px);
+    height: auto;
+    margin: 10px;
+    border: 2px solid var(--text-color);
+    display: block;
+    position: relative;
+}
+
+.player_settings_border_gap {
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    box-sizing: border-box;
+    background-color: var(--options-color);
+    font-size: 13px;
+    border: 2px solid var(--options-color);
+}
+
+.player_ign {
+    display: flex;
+    margin: 10px;
+    margin-top: 20px;
+}
+
+.player_ign p {
+    font-size: 16px;
+    padding-top: 7px;
+    font-family: var(--font-minecraft);
+    color: var(--highlight-color);
+}
+
+.player_ign input {
+    background: transparent;
+    width: calc(580px + 100vw - 1000px);
+    padding: 5px;
+    margin-left: 10px;
+    border: 2px solid var(--text-color);
+    font-size: 16px;
+    font-family: var(--font-minecraft);
+    color: var(--text-color);
+}
+
+.player_ign input:hover {
+    border: 2px solid var(--primary-color);
+}
+
+.player_ign input:focus {
+    outline: none;
+    border: 2px solid var(--primary-color);
+}
+
+.player_ign input::placeholder {
+    font-size: 16px;
+    font-family: var(--font-minecraft);
+    color: var(--text-color);
+}
+
+.player_api_key {
+    display: flex;
+    position: relative;
+    margin: 10px;
+}
+
+.player_api_key p {
+    font-size: 16px;
+    padding-top: 7px;
+    color: var(--highlight-color);
+}
+
+.player_api_key input {
+    background: transparent;
+    width: calc(580px + 100vw - 1000px);
+    padding: 5px;
+    margin-left: 34px;
+    border: 2px solid var(--text-color);
+    font-size: 16px;
+    font-family: var(--font-minecraft);
+    color: var(--text-color);
+}
+
+.player_api_key input:hover {
+    border: 2px solid var(--primary-color);
+}
+
+.player_api_key input:focus {
+    outline: none;
+    border: 2px solid var(--primary-color);
+}
+
+.player_api_key input::placeholder {
+    font-size: 16px;
+    font-family: var(--font-minecraft);
+    color: var(--text-color);
+}
+
 .appearance_heading h1 {
     font-size: 20px;
     color: var(--highlight-color);

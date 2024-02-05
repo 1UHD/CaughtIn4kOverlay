@@ -17,7 +17,7 @@ const createWindow = function() {
         minWidth: 1000,
         minHeight: 600,
         frame: false,
-        icon: __dirname + "/assets/logo.png",
+        icon: __dirname + "src/assets/logo.png",
         transparent: true,
         webPreferences: {
             nodeIntegration: true,
@@ -26,7 +26,7 @@ const createWindow = function() {
     })
 
     log("Initializing Window")
-    window.loadFile("index.html")
+    window.loadFile("src/index.html")
 
     ipcListener(window)
 }
