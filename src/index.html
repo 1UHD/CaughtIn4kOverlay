@@ -19,7 +19,7 @@
                 <img src="assets/title.png" alt="title">
             </div>
             <div class="search">
-                <input type="text" placeholder="Search player">
+                <input type="text" id="search_player" placeholder="Search player">
             </div>
             <div class="manage_app_icons">
                 <div class="close_button">
@@ -51,6 +51,13 @@
                     <div class="player_api_key">
                         <p>API KEY : </p>
                         <input type="text" placeholder="NONE">
+                    </div>
+                </div>
+                <div class="game_settings">
+                    <div class="game_settings_border_gap">GAME SETTINGS</div>
+                    <div class="client">
+                        <p>CLIENT</p>
+                        <button></button>
                     </div>
                 </div>
             </div>
@@ -168,7 +175,7 @@
                     </button>
                 </div>
             </div>
-            <table>
+            <table id="stats_table">
                 <tr>
                     <th>STARS</th>
                     <th>NAME</th>
@@ -179,19 +186,10 @@
                     <th>WINS</th>
                     <th>WLR</th>
                 </tr>
-                <tr>
-                    <td>[1023]</td>
-                    <td>[MVP++] bananajoeYT</td>
-                    <td>SWEATY GAMER</td>
-                    <td>1021</td>
-                    <td>167012</td>
-                    <td>103.69</td>
-                    <td>109012</td>
-                    <td>72.77</td>
-                </tr>
             </table>
         </div>
 
+        <script src="api.js"></script>
         <script src="titlebar.js"></script>
     </body>
 </html>

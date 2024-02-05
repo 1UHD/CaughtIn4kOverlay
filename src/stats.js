@@ -1,4 +1,4 @@
-let api_key = "0d20707f-73b2-44e9-8670-763e042fa840"
+let api_key = "put api key here"
 
 let mojang_api_reachable = true
 let hypixel_api_reachable = true
@@ -11,12 +11,12 @@ function log(message) {
 }
 
 function add_row(stats) {
-    const table = document.getElementById("stats")
+    let table = document.getElementById("stats_table")
 
-    const row = document.createElement("tr")
+    let row = document.createElement("tr")
 
     stats.forEach(function(cellData){
-        const cell = document.createElement("td")
+        let cell = document.createElement("td")
         cell.textContent = cellData
         row.appendChild(cell)
     })
@@ -88,12 +88,14 @@ function get_player_stats(ign) {
             let losses = data.player.stats.Bedwars.losses_bedwars
             let wlr = parseFloat((wins / losses).toFixed(2))
 
+            let winstreak = data.player.stats.Bedwars.winstreak_bedwars
+
             let name = data.player.displayname
             let rank = data.player.newPackageRank
             let index = Math.round((star * fkdr*fkdr) / 10)
 
-            log(`[${star}] [${rank}] ${name} | ${finals} | ${fkdr} | ${bblr} | ${wins} | ${wlr} | ${index}`)
-            add_row([`[${star}] [${rank}] ${name}`, finals, fkdr, bblr, wins, wlr, index])
+            //log(`[${star}] [${rank}] ${name} | ${finals} | ${fkdr} | ${wins} | ${wlr} | ${index}`)
+            add_row([star, `[${rank}] ${name}`, index, 0, finals, fkdr, wins, wlr])
             
             } catch(error) {
                 log(`${ign} exists but has never joined Hypixel.`)
@@ -106,8 +108,8 @@ function get_player_stats(ign) {
     })
 }
 
-var textbox = document.getElementById("add_player_input")
-document.getElementById("add_player_button").addEventListener("click", function() {
-    get_player_stats("iUHD")
+search_player.addEventListener("keypress", function(event) {
+    if(event.key === "Enter") {
+        get_player_stats(document.getElementById("search_player").value)
+    }
 })
-

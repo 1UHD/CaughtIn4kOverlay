@@ -1,8 +1,33 @@
 const { ipcRenderer } = require("electron")
 const ipc = ipcRenderer
+const { get_player_stats } = require("./stats.js")
 
 //TITLEBAR
 
+//SEARCH PLAYER
+/*
+function add_row(stats) {
+    let table = document.getElementById("stats_table")
+
+    let row = document.createElement("tr")
+
+    stats.forEach(function(cellData){
+        let cell = document.createElement("td")
+        cell.textContent = cellData
+        row.appendChild(cell)
+    })
+
+    table.appendChild(row)
+}
+
+search_player.addEventListener("keypress", function(event) {
+    if(event.key === "Enter") {
+        get_player_stats(document.getElementById("search_player").value)
+    }
+})
+*/
+
+//CLOSE/MINIMIZE BUTTONS
 custom_minimize_button.addEventListener("click", function() {
     ipc.send("minimizeApp")
 })
