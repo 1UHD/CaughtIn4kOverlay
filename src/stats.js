@@ -1,4 +1,18 @@
-let api_key = "put api key here"
+let api_key = "add api key here"
+
+const star_colors = [
+    ["gray"],
+    ["white"],
+    ["gold"],
+    ["aqua"],
+    ["green"],
+    ["turquoise"],
+    ["c00000"],
+    ["ff5dff"],
+    ["5f5fff"],
+    ["purple"],
+    ["ff5e5e", "gold", "yellow", "6aff6a", "aqua", "ff5dff", "purple"]
+]
 
 let mojang_api_reachable = true
 let hypixel_api_reachable = true
@@ -15,14 +29,55 @@ function add_row(stats) {
 
     let row = document.createElement("tr")
 
-    stats.forEach(function(cellData){
+    stats.forEach(function (cellInfo) {
         let cell = document.createElement("td")
-        cell.textContent = cellData
-        row.appendChild(cell)
-    })
 
+        if (cellInfo && typeof cellInfo === 'object' && cellInfo.text && cellInfo.colors) {
+            cellInfo.text.forEach(function (text, index) {
+                let span = document.createElement("span")
+                span.textContent = text
+
+                let color = cellInfo.colors[index] || 'black'
+                span.style.color = color
+
+                cell.appendChild(span)
+            });
+        } else {
+            cell.textContent = cellInfo
+        }
+
+        row.appendChild(cell)
+    });
     table.appendChild(row)
 }
+
+function star_color(stars) {
+    var prestige = Math.floor(stars / 100)
+    stars = `[${stars}✫]`
+
+    if(prestige < 10) {
+        var color = star_colors[prestige]
+        var formatted_stars = {"text":[stars], "colors":color}
+    } else {
+        var color = star_colors[10]
+        var stars_array = stars.split("")
+        var formatted_stars = {"text":stars_array, "colors":color}
+    }
+
+    return formatted_stars
+}
+
+/*
+function rank_name_color(rank, name) {
+    var formatted_rank = ""
+    var name_color = ""
+
+    switch(rank) {
+        case undefined:
+
+    }
+}
+*/
 
 function check_user_uuid(name) {
     log(`Getting UUID of ${name}`)
@@ -94,8 +149,11 @@ function get_player_stats(ign) {
             let rank = data.player.newPackageRank
             let index = Math.round((star * fkdr*fkdr) / 10)
 
+
+            var stars = star_color(star)
+
             //log(`[${star}] [${rank}] ${name} | ${finals} | ${fkdr} | ${wins} | ${wlr} | ${index}`)
-            add_row([star, `[${rank}] ${name}`, index, 0, finals, fkdr, wins, wlr])
+            add_row([stars, `[${rank}] ${name}`, index, 0, finals, fkdr, wins, wlr])
             
             } catch(error) {
                 log(`${ign} exists but has never joined Hypixel.`)
