@@ -1,4 +1,4 @@
-let api_key = "add api key here"
+let api_key = "6d86b13b-de83-4f7a-a55c-01548c77730f"
 
 const star_colors = [
     ["gray"],
@@ -7,11 +7,11 @@ const star_colors = [
     ["aqua"],
     ["green"],
     ["turquoise"],
-    ["c00000"],
-    ["ff5dff"],
-    ["5f5fff"],
+    ["#c00000"],
+    ["#ff5dff"],
+    ["#5f5fff"],
     ["purple"],
-    ["ff5e5e", "gold", "yellow", "6aff6a", "aqua", "ff5dff", "purple"]
+    ["#ff5e5e", "gold", "yellow", "#6aff6a", "aqua", "#ff5dff", "purple"]
 ]
 
 let mojang_api_reachable = true
@@ -67,17 +67,63 @@ function star_color(stars) {
     return formatted_stars
 }
 
-/*
-function rank_name_color(rank, name) {
-    var formatted_rank = ""
-    var name_color = ""
+function rank_name_color(rank, name, monthlyPackageRank, staffRank) {
+    var colors = ""
+    var formatted_name = ""
 
-    switch(rank) {
-        case undefined:
+    if(monthlyPackageRank === "SUPERSTAR" && staffRank === undefined) {
+        colors = ["gold", "gold", "gold", "gold", "#ff5e5e", "#ff5e5e", "gold", "gold"]
+        formatted_name = ["[", "M", "V", "P", "+", "+", "] ", name]
 
+        return {text: formatted_name, colors: colors}
+    } else if(staffRank !== undefined) {
+        switch(staffRank) {
+            case "YOUTUBER":
+                colors = ["#ff5e5e", "white", "white", "white", "white", "white", "white", "white", "#ff5e5e", "#ff5e5e"]
+                formatted_name = ["[", "Y", "O", "U", "T", "U", "B", "E", "] ", name]
+
+                return {text: formatted_name, colors: colors}
+
+            case "GAME_MASTER":
+                colors = ["green", "green"]
+                formatted_name = ["[GM] ", name]
+
+                return {text: formatted_name, colors: colors}
+
+            case "ADMIN":
+                colors = ["#ff5e5e", "#ff5e5e"]
+                formatted_name = ["[ADMIN] ", name]
+
+                return {text: formatted_name, colors: colors}
+        }
+    } else if(rank !== undefined) {
+        colors = ["gray"]
+        formatted_name = [name]
+
+        switch(rank) {
+            case "VIP":
+                colors = ["#6aff6a", "#6aff6a"]
+                formatted_name = ["[VIP] ", name]
+                return {text: formatted_name, colors: colors}  
+            
+            case "VIP_PLUS":
+                colors = ["#6aff6a", "#6aff6a", "#6aff6a", "#6aff6a", "gold", "#6aff6a", "#6aff6a"]
+                formatted_name = ["[", "V", "I", "P", "+", "] ", name]
+                return {text: formatted_name, colors: colors}  
+
+            case "MVP":
+                colors = ["aqua", "aqua"]
+                formatted_name = ["[MVP] ", name]
+                return {text: formatted_name, colors: colors}  
+
+            case "MVP_PLUS":
+                colors = ["aqua", "aqua", "aqua", "aqua", "#ff5e5e", "aqua", "aqua"]
+                formatted_name = ["[", "M", "V", "P", "+", "] ", name]
+                return {text: formatted_name, colors: colors}  
+        }
+        return {text: formatted_name, colors: colors}  
     }
 }
-*/
 
 function check_user_uuid(name) {
     log(`Getting UUID of ${name}`)
@@ -85,17 +131,21 @@ function check_user_uuid(name) {
     .then(function(response) {
 
         if(!response.ok) {
-            log("Mojang API not reachable.")
+            //add_row(["N/A", name, {text: ["NOT FOUND"], colors: ["#ff5e5e"]}, "N/A", "N/A", "N/A", "N/A", "N/A"])
             mojang_api_reachable = false
 
         } else if(response.status === 429) {
-            log("Mojang API ratelimited.")
+            add_row(["N/A", name, {text: ["RATELIMIT"], colors: ["#ff5e5e"]}, "N/A", "N/A", "N/A", "N/A", "N/A"])
             mojang_api_reachable = false
 
         } else {
             mojang_api_reachable = true
         }
         return response.json()
+    })
+    .catch(function(error) {
+        add_row(["N/A", name, {text: ["OFFLINE"], colors: ["#c00000"]}, "N/A", "N/A", "N/A", "N/A", "N/A"])
+        mojang_api_reachable = false
     })
 }
 
@@ -105,11 +155,11 @@ function check_hypixel_stats(uuid) {
         .then(function(response) {
 
             if(!response.ok) {
-                log("Hypixel API not reachable.")
+                add_row(["N/A", "N/A", {text: ["NOT REACHABLE"], colors: ["#ff5e5e"]}, "N/A", "N/A", "N/A", "N/A", "N/A"])
                 hypixel_api_reachable = false
 
             } else if(response.status === 429) {
-                log("Hypixel API ratelimited.")
+                add_row(["N/A", "N/A", {text: ["RATELIMIT"], colors: ["#ff5e5e"]}, "N/A", "N/A", "N/A", "N/A", "N/A"])
                 hypixel_api_reachable = false
 
             } else {
@@ -147,20 +197,27 @@ function get_player_stats(ign) {
 
             let name = data.player.displayname
             let rank = data.player.newPackageRank
+            let monthlyPackageRank = data.player.monthlyPackageRank
+            let staffRank = data.player.rank
             let index = Math.round((star * fkdr*fkdr) / 10)
 
 
             var stars = star_color(star)
+            var rank_name = rank_name_color(rank, name, monthlyPackageRank, staffRank)
 
             //log(`[${star}] [${rank}] ${name} | ${finals} | ${fkdr} | ${wins} | ${wlr} | ${index}`)
-            add_row([stars, `[${rank}] ${name}`, index, 0, finals, fkdr, wins, wlr])
+            add_row([stars, rank_name, index, 0, finals, fkdr, wins, wlr])
             
             } catch(error) {
-                log(`${ign} exists but has never joined Hypixel.`)
+                if(hypixel_api_reachable) {
+                    add_row(["N/A", ign, {text: ["NICK"], colors: ["purple"]}, "N/A", "N/A", "N/A", "N/A", "N/A"])
+                }
                 isNicked = false
             }
         } else {
-            log(`${ign} is nicked.`)
+            if(hypixel_api_reachable) {
+                add_row(["N/A", ign, {text: ["NICK"], colors: ["purple"]}, "N/A", "N/A", "N/A", "N/A", "N/A"])
+            }
             isNicked = false
         }
     })
@@ -169,5 +226,6 @@ function get_player_stats(ign) {
 search_player.addEventListener("keypress", function(event) {
     if(event.key === "Enter") {
         get_player_stats(document.getElementById("search_player").value)
+        document.getElementById("search_player").value = ""
     }
 })
