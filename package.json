@@ -4,7 +4,9 @@
   "description": "Stats overlay for Hypixel",
   "main": "launch.js",
   "scripts": {
-    "test": "electron ."
+    "start": "electron .",
+    "test": "node src/testing.js",
+    "listen": "node src/listener.js"
   },
   "author": "kurtiscool",
   "license": "ISC",

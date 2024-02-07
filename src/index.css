@@ -64,6 +64,7 @@ body {
 
 .menu_button img {
     height: 60px;
+    -webkit-user-drag: none;
 }
 
 .name {

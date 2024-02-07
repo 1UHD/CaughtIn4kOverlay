@@ -5,27 +5,46 @@ const { get_player_stats } = require("./stats.js")
 //TITLEBAR
 
 //SEARCH PLAYER
-/*
+
 function add_row(stats) {
     let table = document.getElementById("stats_table")
 
     let row = document.createElement("tr")
 
-    stats.forEach(function(cellData){
+    stats.forEach(function (cellInfo) {
         let cell = document.createElement("td")
-        cell.textContent = cellData
-        row.appendChild(cell)
-    })
 
+        if (cellInfo && typeof cellInfo === 'object' && cellInfo.text && cellInfo.colors) {
+            cellInfo.text.forEach(function (text, index) {
+                let span = document.createElement("span")
+                span.textContent = text
+
+                let color = cellInfo.colors[index] || 'black'
+                span.style.color = color
+
+                cell.appendChild(span)
+            });
+        } else {
+            cell.textContent = cellInfo
+        }
+
+        row.appendChild(cell)
+    });
     table.appendChild(row)
 }
 
 search_player.addEventListener("keypress", function(event) {
     if(event.key === "Enter") {
         get_player_stats(document.getElementById("search_player").value)
+        .then(result => {
+            add_row(result)
+            document.getElementById("search_player").value = ""
+        })
+        .catch(error => {
+            add_row(0, 0, 0, 0, 0, 0, 0, 0)
+        })
     }
 })
-*/
 
 //CLOSE/MINIMIZE BUTTONS
 custom_minimize_button.addEventListener("click", function() {

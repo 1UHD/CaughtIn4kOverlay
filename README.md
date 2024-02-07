@@ -5,7 +5,7 @@ In case you want to test the code before the overlay even properly works:
 2. install nodejs if neccessary
 3. cd into the directory
 4. run npm install electron to install electron
-5. start up the project by using npm test
+5. start up the project by using npm start
 6. put in your api key in src/stats.js
 7. enjoy I guess
 
