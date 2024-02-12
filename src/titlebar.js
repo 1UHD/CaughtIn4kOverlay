@@ -2,10 +2,6 @@ const { ipcRenderer } = require("electron")
 const ipc = ipcRenderer
 const { get_player_stats } = require("./stats.js")
 
-//TITLEBAR
-
-//SEARCH PLAYER
-
 function add_row(stats) {
     let table = document.getElementById("stats_table")
 
@@ -32,6 +28,10 @@ function add_row(stats) {
     });
     table.appendChild(row)
 }
+
+//TITLEBAR
+
+//SEARCH PLAYER
 
 search_player.addEventListener("keypress", function(event) {
     if(event.key === "Enter") {

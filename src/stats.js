@@ -1,4 +1,6 @@
-let api_key = "6d86b13b-de83-4f7a-a55c-01548c77730f"
+//When I wrote this code, only god and I knew how this worked. Now only god knows.
+
+let api_key = "96c2778e-77ec-4d6f-844f-7b5a4f2224b5"
 
 const star_colors = [
     ["gray"],
@@ -12,6 +14,18 @@ const star_colors = [
     ["#5f5fff"],
     ["purple"],
     ["#ff5e5e", "gold", "yellow", "#6aff6a", "aqua", "#ff5dff", "purple"]
+]
+
+
+const skill_levels = [
+    {"max": 1000, "color": ["#A0A0A0"]},
+    {"max": 2500, "color": ["white"]},
+    {"max": 5000, "color": ["#41d12e"]},
+    {"max": 8000, "color": ["green"]},
+    {"max": 12000, "color": ["yellow"]},
+    {"max": 18000, "color": ["orange"]},
+    {"max": 25000, "color": ["#c00000"]},
+    {"max": 6942080085135, "color": ["purple"]}
 ]
 
 let mojang_api_reachable = true
@@ -98,6 +112,17 @@ function rank_name_color(rank, name, monthlyPackageRank, staffRank) {
     }
 }
 
+function finals_color(finals) {
+    for(let i = 0; i < skill_levels.length; i++) {
+        if(finals < skill_levels[i]["max"]) {
+            finals_color = skill_levels[i]["color"]
+            return {text: [finals], colors: [finals_color]}
+        }
+    }
+    finals_color = skill_levels[skill_levels.length - 1]["color"]
+    return {text: [finals], colors: [finals_color]}
+}
+
 function check_user_uuid(name) {
     log(`Getting UUID of ${name}`)
     return fetch(`https://api.mojang.com/users/profiles/minecraft/${name}?`)
@@ -167,30 +192,30 @@ function get_player_stats(ign) {
                     let losses = data.player.stats.Bedwars.losses_bedwars
                     let wlr = parseFloat((wins / losses).toFixed(2))
 
-                    let winstreak = data.player.stats.Bedwars.winstreak_bedwars
-
+                    let winstreak = data.player.stats.Bedwars.winstreak
+                    
                     let name = data.player.displayname
                     let rank = data.player.newPackageRank
                     let monthlyPackageRank = data.player.monthlyPackageRank
                     let staffRank = data.player.rank
                     let index = Math.round((star * fkdr*fkdr) / 10)
 
-
                     var stars = star_color(star)
                     var rank_name = rank_name_color(rank, name, monthlyPackageRank, staffRank)
+                    //var formatted_finals = finals_color(finals)
 
                     //log(`[${star}] [${rank}] ${name} | ${finals} | ${fkdr} | ${wins} | ${wlr} | ${index}`)
-                    resolve([stars, rank_name, index, 0, finals, fkdr, wins, wlr])
+                    resolve([stars, rank_name, index, winstreak, finals, fkdr, wins, wlr])
                 
                 } catch(error) {
                     if(hypixel_api_reachable) {
-                        resolve(["N/A", ign, {text: ["NICK"], colors: ["purple"]}, "N/A", "N/A", "N/A", "N/A", "N/A"])
+                        resolve(["N/A", ign, {text: ["NICK_HYPIXEL"], colors: ["purple"]}, "N/A", "N/A", "N/A", "N/A", "N/A"])
                     }
                     isNicked = false
                 }
             } else {
                 if(hypixel_api_reachable) {
-                    resolve(["N/A", ign, {text: ["NICK"], colors: ["purple"]}, "N/A", "N/A", "N/A", "N/A", "N/A"])
+                    resolve(["N/A", ign, {text: ["NICK_MOJANG"], colors: ["purple"]}, "N/A", "N/A", "N/A", "N/A", "N/A"])
                 }
                 isNicked = false
             }
