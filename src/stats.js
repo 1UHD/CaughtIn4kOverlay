@@ -1,6 +1,6 @@
 //When I wrote this code, only god and I knew how this worked. Now only god knows.
 
-let api_key = "96c2778e-77ec-4d6f-844f-7b5a4f2224b5"
+let api_key = "bff4ee59-6213-4d6e-b09d-3586ec4a3402"
 
 const star_colors = [
     ["gray"],
@@ -170,61 +170,49 @@ function check_hypixel_stats(uuid) {
     }
 }
 
-function get_player_stats(ign) {
-    return new Promise(function(resolve) {
-        check_user_uuid(ign)
-        .then(function(uuid) {
-            return check_hypixel_stats(uuid.id)
-        })
-        .then(function(data) {
-            if(!isNicked) {
-                try {
-                    let star = data.player.achievements.bedwars_level
-                    let finals = data.player.stats.Bedwars.final_kills_bedwars
-                    let finaldeaths = data.player.stats.Bedwars.final_deaths_bedwars
-                    let fkdr = parseFloat((finals / finaldeaths).toFixed(2))
+async function get_player_stats(ign) {
+    try {
+        const uuid = await check_user_uuid(ign);
+        const data = await check_hypixel_stats(uuid.id);
 
-                    let beds = data.player.stats.Bedwars.beds_broken_bedwars
-                    let bedslost = data.player.stats.Bedwars.beds_lost_bedwars
-                    let bblr = parseFloat((beds / bedslost).toFixed(2))
+        if (!isNicked) {
+            let star = data.player.achievements.bedwars_level;
+            let finals = data.player.stats.Bedwars.final_kills_bedwars;
+            let finaldeaths = data.player.stats.Bedwars.final_deaths_bedwars;
+            let fkdr = parseFloat((finals / finaldeaths).toFixed(2));
 
-                    let wins = data.player.stats.Bedwars.wins_bedwars
-                    let losses = data.player.stats.Bedwars.losses_bedwars
-                    let wlr = parseFloat((wins / losses).toFixed(2))
+            let beds = data.player.stats.Bedwars.beds_broken_bedwars;
+            let bedslost = data.player.stats.Bedwars.beds_lost_bedwars;
+            let bblr = parseFloat((beds / bedslost).toFixed(2));
 
-                    let winstreak = data.player.stats.Bedwars.winstreak
-                    
-                    let name = data.player.displayname
-                    let rank = data.player.newPackageRank
-                    let monthlyPackageRank = data.player.monthlyPackageRank
-                    let staffRank = data.player.rank
-                    let index = Math.round((star * fkdr*fkdr) / 10)
+            let wins = data.player.stats.Bedwars.wins_bedwars;
+            let losses = data.player.stats.Bedwars.losses_bedwars;
+            let wlr = parseFloat((wins / losses).toFixed(2));
 
-                    var stars = star_color(star)
-                    var rank_name = rank_name_color(rank, name, monthlyPackageRank, staffRank)
-                    //var formatted_finals = finals_color(finals)
+            let winstreak = data.player.stats.Bedwars.winstreak;
+            let name = data.player.displayname;
+            let rank = data.player.newPackageRank;
+            let monthlyPackageRank = data.player.monthlyPackageRank;
+            let staffRank = data.player.rank;
+            let index = Math.round((star * fkdr * fkdr) / 10);
 
-                    //log(`[${star}] [${rank}] ${name} | ${finals} | ${fkdr} | ${wins} | ${wlr} | ${index}`)
-                    resolve([stars, rank_name, index, winstreak, finals, fkdr, wins, wlr])
-                
-                } catch(error) {
-                    if(hypixel_api_reachable) {
-                        resolve(["N/A", ign, {text: ["NICK_HYPIXEL"], colors: ["purple"]}, "N/A", "N/A", "N/A", "N/A", "N/A"])
-                    }
-                    isNicked = false
-                }
-            } else {
-                if(hypixel_api_reachable) {
-                    resolve(["N/A", ign, {text: ["NICK_MOJANG"], colors: ["purple"]}, "N/A", "N/A", "N/A", "N/A", "N/A"])
-                }
-                isNicked = false
+            var stars = star_color(star);
+            var rank_name = rank_name_color(rank, name, monthlyPackageRank, staffRank);
+            //var formatted_finals = finals_color(finals);
+
+            //log(`[${star}] [${rank}] ${name} | ${finals} | ${fkdr} | ${wins} | ${wlr} | ${index}`)
+            return [stars, rank_name, index, winstreak, finals, fkdr, wins, wlr];
+        } else {
+            if (hypixel_api_reachable) {
+                return ["N/A", ign, {text: ["NICK_MOJANG"], colors: ["purple"]}, "N/A", "N/A", "N/A", "N/A", "N/A"];
             }
-        })
-        .catch(function(error) {
-            console.error(error)
-            return null
-        })
-    })
+            isNicked = false;
+        }
+    } catch (error) {
+        console.error(error);
+        return null;
+    }
 }
+
 
 module.exports = { get_player_stats }
