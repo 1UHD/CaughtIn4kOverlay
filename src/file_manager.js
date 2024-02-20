@@ -40,6 +40,4 @@ function readConfigFile(line) {
     return lines[line - 1]
 }
 
-createConfigFile()
-writeConfigFile(1, "Hello world")
-log(readConfigFile(1))
+module.exports = { createConfigFile, writeConfigFile, readConfigFile }

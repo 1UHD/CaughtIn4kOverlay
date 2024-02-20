@@ -1,4 +1,5 @@
 const fs = require("fs")
+const path = require("path")
 const os = require("os")
 const { get_player_stats } = require("./stats.js")
 
@@ -45,13 +46,8 @@ function getOperatingSystem() {
     }
 }
 
-var logFilePath = ""
-var user_os = getOperatingSystem()
-if(user_os === "MacOS" || user_os === "Linux") {
-    logFilePath = os.homedir + "/.lunarclient/offline/multiver/logs/latest.log"
-} else if(user_os == "Windows") {
-    logFilePath = os.homedir + "\\.lunarclient\\offline\\multiver\\logs\\latest.log"
-}
+var home_dir = os.homedir()
+var logFilePath = path.join(home_dir, ".lunarclient", "offline", "multiver", "logs", "latest.log")
 
 function readLogFileAsync() {
     return new Promise((resolve, reject) => {
@@ -77,7 +73,8 @@ async function get_important_lines() {
                 var player = name[name.length - 4]
             
                 if(!players_in_lobby.includes(player)) {
-                    await add_row([player, 0, 0, 0, 0, 0, 0, 0])
+                    var result = await get_player_stats(player)
+                    await add_row(result)
                     players_in_lobby.push(player)
                 }
 

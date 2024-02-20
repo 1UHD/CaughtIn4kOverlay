@@ -1,6 +1,7 @@
 //INCLUDE
 const { app, BrowserWindow, ipcMain } = require("electron")
 const ipc = ipcMain
+const path = require("path")
 
 //UTILS
 function log(message) {
@@ -17,11 +18,12 @@ const createWindow = function() {
         minWidth: 1000,
         minHeight: 600,
         frame: false,
-        icon: __dirname + "src/assets/logo.png",
+        icon: "/src/assets/logo.png",
         transparent: true,
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
+            preload: path.join(__dirname, "src/preload.js"),
         }
     })
 

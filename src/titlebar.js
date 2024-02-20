@@ -1,6 +1,7 @@
 const { ipcRenderer } = require("electron")
 const ipc = ipcRenderer
 const { get_player_stats } = require("./stats.js")
+const { writeConfigFile, readConfigFile } = require("./file_manager.js")
 
 function add_row(stats) {
     let table = document.getElementById("stats_table")
@@ -106,6 +107,19 @@ for(let i = 0; i < 5; i++) {
 }
 
 //SIDEBAR OPTIONS MENUS
+
+//PROFILE
+
+//APIKEY CHANGER
+apikey_input.placeholder = readConfigFile(1)
+
+apikey_input.addEventListener("keypress", function(event) {
+    if(event.key === "Enter") {
+        writeConfigFile(1, apikey_input.value)
+        apikey_input.placeholder = apikey_input.value
+        apikey_input.value = ""
+    }
+})
 
 //APPEARANCE
 

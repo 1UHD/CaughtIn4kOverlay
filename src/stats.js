@@ -1,6 +1,7 @@
 //When I wrote this code, only god and I knew how this worked. Now only god knows.
+const { readConfigFile } = require("./file_manager.js")
 
-let api_key = "bff4ee59-6213-4d6e-b09d-3586ec4a3402"
+let api_key = readConfigFile(1)
 
 const star_colors = [
     ["gray"],
