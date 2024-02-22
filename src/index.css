@@ -185,21 +185,27 @@ body {
     position: relative;
 }
 
-.stats table {
+._stats_table table {
     user-select: none;
     width: 100%;
     border-collapse: collapse;
+    overflow: auto;
 }
 
-.stats table th,
-.stats table td {
-    text-align: center;
-    padding: 5px;
+._stats_table table th,
+._stats_table table td {
+        text-align: center;
+        padding: 5px;
 }
 
-.stats table th {
+._stats_table table th {
     color: var(--highlight-color);
     font-size: 13px;
+}
+
+._stats_table {
+    height: auto;
+    overflow: auto;
 }
 
 .menu {

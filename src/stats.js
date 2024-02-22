@@ -3,6 +3,10 @@ const { readConfigFile } = require("./file_manager.js")
 
 let api_key = readConfigFile(1)
 
+function update_api_key() {
+    api_key = readConfigFile(1)
+}
+
 const star_colors = [
     ["gray"],
     ["white"],
@@ -173,6 +177,7 @@ function check_hypixel_stats(uuid) {
 
 async function get_player_stats(ign) {
     try {
+        await update_api_key()
         const uuid = await check_user_uuid(ign);
         const data = await check_hypixel_stats(uuid.id);
 
@@ -210,7 +215,7 @@ async function get_player_stats(ign) {
             isNicked = false;
         }
     } catch (error) {
-        console.error(error);
+        alert(error);
         return null;
     }
 }

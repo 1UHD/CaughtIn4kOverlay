@@ -34,6 +34,25 @@ function add_row(stats) {
     table.appendChild(row)
 }
 
+function remove_row(index) {
+    let table = document.getElementById("stats_table")
+    table.deleteRow(index)
+}
+
+function clear_overlay() {
+    let table = document.getElementById("stats_table")
+    let rows = table.row.length
+
+    for(let i = rows - 1; i > 0; i--) {
+        table.deleteRow(i)
+    }
+
+}
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms))
+}
+
 function getOperatingSystem() {
     var platform = navigator.platform.toLowerCase();
 
@@ -84,25 +103,42 @@ async function get_important_lines() {
                 var player = name[name.length - 3]
 
                 if(players_in_lobby.includes(player)) {
+                    remove_row(players_in_lobby.indexOf(player))
                     players_in_lobby.splice(players_in_lobby.indexOf(player), 1)
                 }
 
                 checked_lines.push(newest_line)
             } else if(newest_line.includes("ONLINE") && !checked_lines.includes(newest_line)) {
-                await add_row([newest_line, 0, 0, 0, 0, 0, 0, 0])
+                let online = newest_line.replace("ONLINE:", ",").split(",")
+                online.splice(0, 1)
+                online.splice(online.length-1, 1)
+                
+                for(let i = 0; i < online.length; i++) {
+                    if (!players_in_lobby.includes(online[i])) {
+                        var result = await get_player_stats(online[i])
+                        await add_row(result)
+                        players_in_lobby.push(online[i])
+                        await sleep(100)
+                    }
+                }
+
                 checked_lines.push(newest_line)
             } else if(newest_line.includes("by the name of") && !checked_lines.includes(newest_line)) {
                 var name = newest_line.split("'")
-                var player = name[name.length - 2]
+                var player = name[name.length - 2].replace("!", "")
 
-                await add_row([player, 0, 0, 0, 0, 0, 0, 0])
-
+                if(player === "clear" || player === "c") {
+                    await clear_overlay()
+                } else {
+                    var result = await get_player_stats(player)
+                    await add_row(result)
+                }
                 checked_lines.push(newest_line)
             }
         }
         
     } catch (error) {
-        alert("ALARM!")
+        alert("Something went wrong while grabbing Stats")
     }
 }
 
