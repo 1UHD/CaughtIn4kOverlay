@@ -77,70 +77,51 @@
                     <div class="appearance_text_border_gap">TEXT SETTINGS</div>
                     <div class="font_family">
                         <p>FONT FAMILY</p>
-                        <div class="font_family_buttons">
-                            <button class="font_family_button_minecraft" id="font_family_button_minecraft">MINECRAFT</button>
-                            <button class="font_family_button_menlo" id="font_family_button_menlo">MENLO</button>
-                            <button class="font_family_button_poppins" id="font_family_button_poppins">POPPINS</button>
+                        <select id="font_family_dropdown">
+                            <option value="Minecraft">MINECRAFT</option>
+                            <option value="Menlo">MENLO</option>
+                            <option value="Poppins">POPPINS</option>
+                        </select>
+                    </div>
+                    <div class="font_color">
+                        <h1>FONT COLOR</h1>
+                        <div class="font_color_settings">
+                            <div class="font_color_texts">
+                                <p>TEXT COLOR</p>
+                                <p>HEADING COLOR</p>
+                            </div>
+                            <div class="font_color_inputs">
+                                <input type="color" id="text_color_picker" value="#D4D4D4">
+                                <input type="color" id="heading_text_color_picker" value="#ffffff">
+                            </div>
                         </div>
                     </div>
-                    <div class="text_color">
-                        <h1>TEXT COLOR</h1>
-                        <div class="text_color_slider_red">
-                            <p>RED</p>
-                            <input type="range" id="text_color_red_slider" min="0" max="255" step="1" value="212">
-                            <input type="number" id="text_color_red_slider_value" placeholder="212" min="0" max="255" step="1">
-                        </div>
-                        <div class="text_color_slider_green">
-                            <p>GREEN</p>
-                            <input type="range" id="text_color_green_slider" min="0" max="255" step="1" value="212">
-                            <input type="number" id="text_color_green_slider_value" placeholder="212" min="0" max="255" step="1">
-                        </div>
-                        <div class="text_color_slider_blue">
-                            <p>BLUE</p>
-                            <input type="range" id="text_color_blue_slider" min="0" max="255" step="1" value="212">
-                            <input type="number" id="text_color_blue_slider_value" placeholder="212" min="0" max="255" step="1">
-                        </div>
-                        <div class="text_color_slider_alpha">
-                            <p>ALPHA</p>
-                            <input type="range" id="text_color_alpha_slider" min="0" max="1" step="0.1" value="1">
-                            <input type="number" id="text_color_alpha_slider_value" placeholder="1" min="0" max="1" step="0.1">
-                        </div>
-                        <div class="color_preview_and_hex">
-                            <p id="color_preview_preview">PREVIEW : </p>
-                            <div class="color_preview"></div>
-                            <button class="apply_text_color_button" id="apply_text_color_button">APPLY</button>
-                            <p id="color_preview_hex">HEX : </p>
-                            <input type="text" id="text_color_hex_input" placeholder="#D4D4D4">
+                </div>
+                <div class="appearance_category_gap"></div>
+                <div class="appearance_background">
+                    <div class="appearance_background_border_gap">BACKGROUND SETTINGS</div>
+                    <div class="background_alpha">
+                        <p>BACKGROUND ALPHA</p>
+                        <div class="background_alpha_changer">
+                            <input type="range" min="0" max="100" value="100" id="background_alpha_slider" step="1">
+                            <p id="background_alpha_number">100%</p>
                         </div>
                     </div>
-                    <div class="heading_text_color">
-                        <h1>HEADING COLOR</h1>
-                        <div class="heading_text_color_slider_red">
-                            <p>RED</p>
-                            <input type="range" id="heading_text_color_red_slider" min="0" max="255" step="1" value="255">
-                            <input type="number" id="heading_text_color_red_slider_value" placeholder="255" min="0" max="255" step="1">
-                        </div>
-                        <div class="heading_text_color_slider_green">
-                            <p>GREEN</p>
-                            <input type="range" id="heading_text_color_green_slider" min="0" max="255" step="1" value="255">
-                            <input type="number" id="heading_text_color_green_slider_value" placeholder="255" min="0" max="255" step="1">
-                        </div>
-                        <div class="heading_text_color_slider_blue">
-                            <p>BLUE</p>
-                            <input type="range" id="heading_text_color_blue_slider" min="0" max="255" step="1" value="255">
-                            <input type="number" id="heading_text_color_blue_slider_value" placeholder="255" min="0" max="255" step="1">
-                        </div>
-                        <div class="heading_text_color_slider_alpha">
-                            <p>ALPHA</p>
-                            <input type="range" id="heading_text_color_alpha_slider" min="0" max="1" step="0.1" value="1">
-                            <input type="number" id="heading_text_color_alpha_slider_value" placeholder="1" min="0" max="1" step="0.1">
-                        </div>
-                        <div class="heading_color_preview_and_hex">
-                            <p id="heading_color_preview_preview">PREVIEW : </p>
-                            <div class="heading_color_preview"></div>
-                            <button class="heading_apply_text_color_button" id="heading_apply_text_color_button">APPLY</button>
-                            <p id="heading_color_preview_hex">HEX : </p>
-                            <input type="text" id="heading_text_color_hex_input" placeholder="#FFFFFF">
+                    <div class="background_color">
+                        <h1>BACKGROUND COLOR</h1>
+                        <div class="background_color_settings">
+                            <div class="background_color_texts">
+                                <p>BACKGROUND COLOR</p>
+                                <p>TITLEBAR COLOR</p>
+                                <p>SETTINGS BAR COLOR</p>
+                                <p>SETTINGS MENU COLOR</p>
+                            </div>
+                            <div class="background_color_inputs">
+                                <input type="color" id="background_color_picker" value="#353535">
+                                <input type="color" id="titlebar_color_picker" value="#242424">
+                                <input type="color" id="settings_bar_color_picker" value="#242424">
+                                <input type="color" id="settings_menu_color_picker" value="#2C2C2C">
+                            </div>
                         </div>
                     </div>
                 </div>

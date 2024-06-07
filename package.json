@@ -1,17 +1,15 @@
 {
   "name": "caughtin4k",
   "version": "1.0.0",
-  "description": "Stats overlay for Hypixel",
+  "description": "A Hypixel Stats Overlay",
   "main": "launch.js",
   "scripts": {
-    "start": "electron .",
-    "test": "node src/testing.js",
-    "listen": "node src/listener.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+	"start": "electron ."
   },
-  "author": "kurtiscool",
+  "author": "kurt",
   "license": "ISC",
   "dependencies": {
-    "electron": "^28.2.1",
-    "http-server": "^14.1.1"
+    "electron": "^30.0.7"
   }
 }

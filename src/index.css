@@ -10,18 +10,16 @@
 
 :root {
     --body-color: rgba(53, 53, 53, 1);
-    --sidebar-color: rgba(36, 36, 36, 1);
+    --titlebar-color: rgba(36, 36, 36, 1);
     --menu-color: rgba(36, 36, 36, 1);
-    --primary-color: rgba(75, 142, 255, 1);
-    --primary-color-light: rgba(114, 166, 255, 1);
-    --text-color: rgba(212, 212, 212, 1.0);
     --options-color: rgba(44, 44, 44, 1);
-    --highlight-color: rgba(255, 255, 255, 1);
 
-    --font-minecraft: "Minecraft", sans-serif;
+    --primary-color: rgba(75, 142, 255, 1);
 
-    --text-color-preview: rgba(212, 212, 212, 1);
-    --highlight-color-preview: rgba(255, 255, 255, 1);
+    --text-color: rgba(212, 212, 212, 1.0);
+    --heading-color: rgba(255, 255, 255, 1);
+
+    --active-font: "Minecraft", sans-serif;
 
     --tran-02: all 0.2s ease;
     --tran-03: all 0.3s ease;
@@ -30,7 +28,7 @@
 }
 
 body {
-    font-family: var(--font-minecraft);
+    font-family: var(--active-font);
     height: 100vh;
     background: var(--body-color);
     overflow: hidden;
@@ -39,7 +37,7 @@ body {
 .titlebar {
     top: 0;
     left: 0;
-    background-color: var(--sidebar-color);
+    background-color: var(--titlebar-color);
     height: 50px;
     width: 100%;
     display: flex;
@@ -90,7 +88,7 @@ body {
     border: 2px solid var(--text-color);
     padding: 10px;
     color: var(--text-color);
-    font-family: var(--font-minecraft);
+    font-family: var(--active-font);
     -webkit-app-region: no-drag
 }
 
@@ -112,7 +110,7 @@ body {
     height: 50px;
     width: auto;
     margin-left: auto;
-    background-color: var(--sidebar-color);
+    background-color: var(--titlebar-color);
     display: flex;
     align-items: center;
     -webkit-app-region: no-drag;
@@ -199,7 +197,7 @@ body {
 }
 
 ._stats_table table th {
-    color: var(--highlight-color);
+    color: var(--heading-color);
     font-size: 13px;
 }
 
@@ -226,7 +224,7 @@ body {
 }
 
 .buttons button {
-    font-family: var(--font-minecraft);
+    font-family: var(--active-font);
     color: var(--text-color);
     background: transparent;
     border: none;
@@ -288,7 +286,7 @@ body {
 
 .profile_heading h1 {
     font-size: 20px;
-    color: var(--highlight-color);
+    color: var(--heading-color);
     padding: 10px;
 }
 
@@ -322,8 +320,8 @@ body {
 .player_ign p {
     font-size: 16px;
     padding-top: 7px;
-    font-family: var(--font-minecraft);
-    color: var(--highlight-color);
+    font-family: var(--active-font);
+    color: var(--heading-color);
 }
 
 .player_ign input {
@@ -333,7 +331,7 @@ body {
     margin-left: 10px;
     border: 2px solid var(--text-color);
     font-size: 16px;
-    font-family: var(--font-minecraft);
+    font-family: var(--active-font);
     color: var(--text-color);
 }
 
@@ -348,7 +346,7 @@ body {
 
 .player_ign input::placeholder {
     font-size: 16px;
-    font-family: var(--font-minecraft);
+    font-family: var(--active-font);
     color: var(--text-color);
 }
 
@@ -361,7 +359,7 @@ body {
 .player_api_key p {
     font-size: 16px;
     padding-top: 7px;
-    color: var(--highlight-color);
+    color: var(--heading-color);
 }
 
 .player_api_key input {
@@ -371,7 +369,7 @@ body {
     margin-left: 34px;
     border: 2px solid var(--text-color);
     font-size: 16px;
-    font-family: var(--font-minecraft);
+    font-family: var(--active-font);
     color: var(--text-color);
 }
 
@@ -386,13 +384,13 @@ body {
 
 .player_api_key input::placeholder {
     font-size: 16px;
-    font-family: var(--font-minecraft);
+    font-family: var(--active-font);
     color: var(--text-color);
 }
 
 .appearance_heading h1 {
     font-size: 20px;
-    color: var(--highlight-color);
+    color: var(--heading-color);
     padding: 10px;
 }
 
@@ -424,377 +422,199 @@ body {
 .font_family p {
     font-size: 16px;
     padding-top: 10px;
-    color: var(--highlight-color);
+    color: var(--heading-color);
 }
 
-.font_family_buttons button {
-    background: transparent;
-    height: 40px;
+#font_family_dropdown  {
+    margin: 10px;
+    background: none;
     border: 2px solid var(--text-color);
-    padding: 5px;
+    font-family: var(--active-font);
     color: var(--text-color);
-    cursor: pointer;
 }
 
-.font_family_button_minecraft {
-    font-family: "Minecraft", sans-serif;
+.font_color {
     margin-top: 10px;
-    font-size: 12px;
-}
-
-.font_family_button_menlo {
-    font-family: "Menlo", sans-serif;
-    margin-top: -5px;
-    font-size: 15px;
-}
-
-.font_family_button_poppins {
-    font-family: "Poppins", sans-serif;
-    margin-top: -5px;
-    font-size: 15px;
-}
-
-.font_family_buttons button:hover {
-    border: 2px solid var(--primary-color);
-    color: var(--primary-color);
-}
-
-.text_color {
-    margin: 10px;
-    margin-top: 30px;
-}
-
-.text_color h1 {
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--highlight-color);
-}
-
-.text_color_slider_red,
-.text_color_slider_green,
-.text_color_slider_blue,
-.text_color_slider_alpha {
     margin-left: 10px;
-    margin-top: 5px;
-    position: relative;
+}
+
+.font_color h1 {
+    color: var(--heading-color);
+    font-size: 16px;
+}
+
+.font_color_settings {
     display: flex;
-    flex-direction: column;   
+    align-items: flex-start;
+    width: calc(700px + 100vw - 1000px)
 }
 
-.text_color_slider_red p,
-.text_color_slider_green p,
-.text_color_slider_blue p,
-.text_color_slider_alpha p {
-    width: 150px;
-    color: var(--text-color);
+.font_color_texts {
+    flex: 1;
+    margin-left: 10px;
+}
+
+.font_color_texts p {
+    margin-bottom: 10px;
+    margin: 2px;
     font-size: 15px;
+    font-weight: 300;
+    color: var(--font-color);
 }
 
-.text_color_slider_red #text_color_red_slider,
-.text_color_slider_green #text_color_green_slider,
-.text_color_slider_blue #text_color_blue_slider,
-.text_color_slider_alpha #text_color_alpha_slider {
-    width: calc(500px + 100vw - 1000px);
-    position: absolute;
-    margin-left: 75px;
-    margin-top: 9px;
+.font_color_inputs {
+    margin-bottom: 10px;
+}
+
+.font_color_inputs input[type="color"] {
+    margin: 2px;
+    height: 20px;
+    width: 50px;
+    padding: 0;
+    margin-left: 10px;
     -webkit-appearance: none;
-    height: 5px;
-    background-color: var(--text-color);
-    outline: none;
+    appearance: none;
+    border: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-.text_color_slider_red #text_color_red_slider::-webkit-slider-thumb,
-.text_color_slider_green #text_color_green_slider::-webkit-slider-thumb,
-.text_color_slider_blue #text_color_blue_slider::-webkit-slider-thumb,
-.text_color_slider_alpha #text_color_alpha_slider::-webkit-slider-thumb {
+.font_color_inputs input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+.font_color_inputs input[type="color"]::-webkit-color-swatch {
+    border: 1px solid var(--text-color);
+    border-radius: 0;
+}
+
+.appearance_category_gap {
+    height: 10px;
+}
+
+.appearance_background {
+    width: calc(730px + 100vw - 1000px);
+    height: auto;
+    margin: 10px;
+    border: 2px solid var(--text-color);
+    display: block;
+    position: relative;
+}
+
+.appearance_background_border_gap {
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    box-sizing: border-box;
+    background-color: var(--options-color);
+    font-size: 13px;
+    border: 2px solid var(--options-color);
+}
+
+.background_alpha {
+    margin: 10px;
+}
+
+.background_alpha p {
+    font-size: 16px;
+    padding-top: 10px;
+    color: var(--heading-color);
+}
+
+.background_alpha_changer {
+    display: flex;
+}
+
+.background_alpha_changer input {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 10px;
+    width: calc(620px + 100vw - 1000px);
+}
+
+.background_alpha_changer input::-webkit-slider-thumb {
     -webkit-appearance: none;
     width: 15px;
     height: 15px;
-    background-color: var(--options-color);
+    margin-top: -5px;
+    background-color: var(--heading-color);
 }
 
-.text_color_slider_red #text_color_red_slider::-webkit-slider-thumb {
-    border: 3px solid red;
-}
-
-.text_color_slider_green #text_color_green_slider::-webkit-slider-thumb {
-    border: 3px solid green;
-}
-
-.text_color_slider_blue #text_color_blue_slider::-webkit-slider-thumb {
-    border: 3px solid blue;
-}
-
-.text_color_slider_alpha #text_color_alpha_slider::-webkit-slider-thumb {
-    border: 3px solid gray;
-}
-
-.text_color_slider_red #text_color_red_slider_value,
-.text_color_slider_green #text_color_green_slider_value,
-.text_color_slider_blue #text_color_blue_slider_value,
-.text_color_slider_alpha #text_color_alpha_slider_value {
-    position: absolute;
-    margin-left: calc(600px + 100vw - 1000px);
-    width: 50px;
-    background: transparent;
-    border: none;
-    font-size: 14px;
-    text-align: right;
-    color: var(--text-color);
-    font-family: var(--font-minecraft);
-}
-
-.text_color_slider_red #text_color_red_slider_value::-webkit-inner-spin-button,
-.text_color_slider_red #text_color_red_slider_value::-webkit-outer-spin-button,
-.text_color_slider_green #text_color_green_slider_value::-webkit-inner-spin-button,
-.text_color_slider_green #text_color_green_slider_value::-webkit-outer-spin-button,
-.text_color_slider_blue #text_color_blue_slider_value::-webkit-inner-spin-button,
-.text_color_slider_blue #text_color_blue_slider_value::-webkit-outer-spin-button,
-.text_color_slider_alpha #text_color_alpha_slider_value::-webkit-inner-spin-button,
-.text_color_slider_alpha #text_color_alpha_slider_value::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-}
-
-.text_color_slider_red #text_color_red_slider_value::placeholder,
-.text_color_slider_green #text_color_green_slider_value::placeholder,
-.text_color_slider_blue #text_color_blue_slider_value::placeholder,
-.text_color_slider_alpha #text_color_alpha_slider_value::placeholder {
-    text-align: right;
-    font-size: 14px;
-    color: var(--text-color);
-    font-family: var(--font-minecraft);
-}
-
-.color_preview_and_hex {
-    position: relative;
-    height: 30px;
-    margin-top: 20px;
-    margin-left: 10px;
-}
-
-.color_preview_and_hex p {
-    position: absolute;
-    font-size: 14px;
-    color: var(--text-color);
-    font-family: var(--font-minecraft);
-}
-
-.color_preview_and_hex p#color_preview_hex {
-    margin-left: calc(530px + 100vw - 1000px);
-}
-
-.color_preview {
-    position: absolute;
-    height: 20px;
-    width: 30px;
-    border: 3px solid var(--sidebar-color);
-    background-color: var(--text-color-preview);
-    margin-left: 80px;
-}
-
-.color_preview_and_hex button {
-    font-family: var(--font-minecraft);
-    color: var(--text-color);
-    font-size: 14px;
-    background: transparent;
-    border: 2px solid var(--text-color);
-    position: absolute;
-    padding: 5px;
-    margin-left: calc((600px + 100vw - 1000px)/2);
-    cursor: pointer;
-}
-
-.color_preview_and_hex button:hover {
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
-}
-
-.color_preview_and_hex input {
-    position: absolute;
-    width: 80px;
-    text-align: right;
-    margin-left: calc(570px + 100vw - 1000px);
-    font-size: 14px;
-    color: var(--text-color);
-    font-family: var(--font-minecraft);
-    background: transparent;
-    border: none;
-}
-
-.color_preview_and_hex input::placeholder {
-    font-size: 14px;
-    text-align: right;
-    color: var(--text-color-preview);
-    font-family: var(--font-minecraft);
-}
-
-.heading_text_color {
-    margin: 10px;
-    margin-top: 30px;
-}
-
-.heading_text_color h1 {
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--highlight-color);
-}
-
-.heading_text_color_slider_red,
-.heading_text_color_slider_green,
-.heading_text_color_slider_blue,
-.heading_text_color_slider_alpha {
-    margin-left: 10px;
-    margin-top: 5px;
-    position: relative;
-    display: flex;
-    flex-direction: column;   
-}
-
-.heading_text_color_slider_red p,
-.heading_text_color_slider_green p,
-.heading_text_color_slider_blue p,
-.heading_text_color_slider_alpha p {
-    width: 150px;
-    color: var(--text-color);
-    font-size: 15px;
-}
-
-.heading_text_color_slider_red #heading_text_color_red_slider,
-.heading_text_color_slider_green #heading_text_color_green_slider,
-.heading_text_color_slider_blue #heading_text_color_blue_slider,
-.heading_text_color_slider_alpha #heading_text_color_alpha_slider {
-    width: calc(500px + 100vw - 1000px);
-    position: absolute;
-    margin-left: 75px;
-    margin-top: 9px;
-    -webkit-appearance: none;
+.background_alpha_changer input::-webkit-slider-runnable-track {
+    width: 100%;
     height: 5px;
-    background-color: var(--text-color);
-    outline: none;
+    cursor: pointer;
+    background: var(--text-color);
 }
 
-.heading_text_color_slider_red #heading_text_color_red_slider::-webkit-slider-thumb,
-.heading_text_color_slider_green #heading_text_color_green_slider::-webkit-slider-thumb,
-.heading_text_color_slider_blue #heading_text_color_blue_slider::-webkit-slider-thumb,
-.heading_text_color_slider_alpha #heading_text_color_alpha_slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 15px;
-    height: 15px;
-    background-color: var(--options-color);
-}
-
-.heading_text_color_slider_red #heading_text_color_red_slider::-webkit-slider-thumb {
-    border: 3px solid red;
-}
-
-.heading_text_color_slider_green #heading_text_color_green_slider::-webkit-slider-thumb {
-    border: 3px solid green;
-}
-
-.heading_text_color_slider_blue #heading_text_color_blue_slider::-webkit-slider-thumb {
-    border: 3px solid blue;
-}
-
-.heading_text_color_slider_alpha #heading_text_color_alpha_slider::-webkit-slider-thumb {
-    border: 3px solid gray;
-}
-
-.heading_text_color_slider_red #heading_text_color_red_slider_value,
-.heading_text_color_slider_green #heading_text_color_green_slider_value,
-.heading_text_color_slider_blue #heading_text_color_blue_slider_value,
-.heading_text_color_slider_alpha #heading_text_color_alpha_slider_value {
-    position: absolute;
-    margin-left: calc(600px + 100vw - 1000px);
-    width: 50px;
-    background: transparent;
-    border: none;
-    font-size: 14px;
-    text-align: right;
-    color: var(--text-color);
-    font-family: var(--font-minecraft);
-}
-
-.heading_text_color_slider_red #heading_text_color_red_slider_value::-webkit-inner-spin-button,
-.heading_text_color_slider_red #heading_text_color_red_slider_value::-webkit-outer-spin-button,
-.heading_text_color_slider_green #heading_text_color_green_slider_value::-webkit-inner-spin-button,
-.heading_text_color_slider_green #heading_text_color_green_slider_value::-webkit-outer-spin-button,
-.heading_text_color_slider_blue #heading_text_color_blue_slider_value::-webkit-inner-spin-button,
-.heading_text_color_slider_blue #heading_text_color_blue_slider_value::-webkit-outer-spin-button,
-.heading_text_color_slider_alpha #heading_text_color_alpha_slider_value::-webkit-inner-spin-button,
-.heading_text_color_slider_alpha #heading_text_color_alpha_slider_value::-webkit-outer-spin-button {
+.background_alpha_changer input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 
-.heading_text_color_slider_red #heading_text_color_red_slider_value::placeholder,
-.heading_text_color_slider_green #heading_text_color_green_slider_value::placeholder,
-.heading_text_color_slider_blue #heading_text_color_blue_slider_value::placeholder,
-.heading_text_color_slider_alpha #heading_text_color_alpha_slider_value::placeholder {
-    text-align: right;
-    font-size: 14px;
-    color: var(--text-color);
-    font-family: var(--font-minecraft);
-}
-
-.heading_color_preview_and_hex {
-    position: relative;
-    height: 30px;
-    margin-top: 20px;
+.background_alpha_changer p {
+    margin-top: -8px;
     margin-left: 10px;
 }
 
-.heading_color_preview_and_hex p {
-    position: absolute;
-    font-size: 14px;
-    color: var(--text-color);
-    font-family: var(--font-minecraft);
+.background_color {
+    margin-top: 10px;
+    margin-left: 10px;
 }
 
-.heading_color_preview_and_hex p#heading_color_preview_hex {
-    margin-left: calc(530px + 100vw - 1000px);
+.background_color h1 {
+    color: var(--heading-color);
+    font-size: 16px;
 }
 
-.heading_color_preview {
-    position: absolute;
+.background_color_settings {
+    display: flex;
+    align-items: flex-start;
+    width: calc(700px + 100vw - 1000px)
+}
+
+.background_color_texts {
+    flex: 1;
+    margin-left: 10px;
+}
+
+.background_color_texts p {
+    margin-bottom: 10px;
+    margin: 2px;
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--font-color);
+}
+
+.background_color_inputs {
+    margin-bottom: 10px;
+}
+
+.background_color_inputs input[type="color"] {
+    margin: 2px;
     height: 20px;
-    width: 30px;
-    border: 3px solid var(--sidebar-color);
-    background-color: var(--highlight-color-preview);
-    margin-left: 80px;
+    width: 50px;
+    padding: 0;
+    margin-left: 10px;
+    -webkit-appearance: none;
+    appearance: none;
+    border: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-.heading_color_preview_and_hex button {
-    font-family: var(--font-minecraft);
-    color: var(--text-color);
-    font-size: 14px;
-    background: transparent;
-    border: 2px solid var(--text-color);
-    position: absolute;
-    padding: 5px;
-    margin-left: calc((600px + 100vw - 1000px)/2);
-    cursor: pointer;
+.background_color_inputs input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
 }
 
-.heading_color_preview_and_hex button:hover {
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
+.background_color_inputs input[type="color"]::-webkit-color-swatch {
+    border: 1px solid var(--text-color);
+    border-radius: 0;
 }
 
-.heading_color_preview_and_hex input {
-    position: absolute;
-    width: 80px;
-    text-align: right;
-    margin-left: calc(570px + 100vw - 1000px);
-    font-size: 14px;
-    color: var(--text-color);
-    font-family: var(--font-minecraft);
-    background: transparent;
-    border: none;
-}
-
-.heading_color_preview_and_hex input::placeholder {
-    font-size: 14px;
-    text-align: right;
-    color: var(--highlight-color-preview);
-    font-family: var(--font-minecraft);
+.antisniper_menu h1 {
+    margin: 10px;
 }
